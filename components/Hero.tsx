@@ -1,22 +1,72 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Hero: React.FC = () => {
+interface Slide {
+  image: string;
+  subtitle: string;
+  title: string;
+  description: string;
+}
+
+interface HeroProps {
+  slides: Slide[];
+}
+
+const Hero: React.FC<HeroProps> = ({ slides = [] }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    if (slides.length === 0) return;
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+  if (slides.length === 0) {
+    return <section className="h-[90vh] min-h-[600px] w-full bg-slate-200"></section>;
+  }
+
   return (
-    <section id="home" className="relative h-[80vh] min-h-[500px] flex items-center justify-center text-white text-center bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?q=80&w=1920&auto=format&fit=crop')" }}>
-      <div className="absolute inset-0 bg-black/50"></div>
-      <div className="relative z-10 p-6 max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg">
-          Defending and Protecting Human Rights for All
-        </h1>
-        <p className="text-lg md:text-xl mb-8 font-light max-w-2xl mx-auto">
-          International Human Rights Council is one of the world’s leading independent organizations dedicated to defending and protecting human rights for all.
-        </p>
-        <a 
-          href="#/our-work" 
-          className="bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105 duration-300"
+    <section id="home" className="relative h-[90vh] min-h-[600px] w-full overflow-hidden">
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'}`}
+          style={{ backgroundImage: `url('${slide.image}')` }}
         >
-          Learn More
-        </a>
+           <div className="absolute inset-0 bg-black/60"></div>
+        </div>
+      ))}
+      <div className="relative z-10 flex items-center justify-center h-full text-white text-center">
+        <div className="max-w-4xl mx-auto px-6">
+            <p className="text-lg md:text-xl text-custom-blue font-semibold mb-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              {slides[currentSlide].subtitle}
+            </p>
+            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg animate-fade-in" style={{ animationDelay: '0.4s' }}>
+              {slides[currentSlide].title}
+            </h1>
+            <p className="text-base md:text-lg mb-8 font-light max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.6s' }}>
+              {slides[currentSlide].description}
+            </p>
+            <a
+              href="#/about"
+              className="bg-custom-blue hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-md text-lg transition-transform transform hover:scale-105 duration-300 animate-fade-in"
+              style={{ animationDelay: '0.8s' }}
+            >
+              Learn More
+            </a>
+        </div>
+      </div>
+       <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex space-x-2">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-3 h-3 rounded-full transition-colors duration-300 ${currentSlide === index ? 'bg-custom-blue' : 'bg-white/50'}`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   );

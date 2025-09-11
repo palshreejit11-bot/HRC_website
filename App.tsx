@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
-import OurWorkPage from './pages/OurWorkPage';
-import GetInvolvedPage from './pages/GetInvolvedPage';
+import AboutPage from './pages/OurWorkPage'; // Repurposed as AboutPage
+import EventsPage from './pages/GetInvolvedPage'; // Repurposed as EventsPage
 import ContactPage from './pages/ContactPage';
 import MembersPage from './pages/MembersPage';
 
@@ -20,17 +20,17 @@ const App: React.FC = () => {
     window.addEventListener('hashchange', handleHashChange);
 
     // Set document title based on the current route
-    if (route === '#/our-work') {
-      document.title = 'Our Work - International Human Rights Council';
-    } else if (route === '#/our-team') {
-      document.title = 'Our Team - International Human Rights Council';
-    } else if (route === '#/get-involved') {
-      document.title = 'Get Involved - International Human Rights Council';
-    } else if (route === '#/contact') {
-      document.title = 'Contact Us - International Human Rights Council';
-    } else {
-      document.title = 'International Human Rights Council';
+    let pageTitle = 'IHRCWB | International Human Rights Council';
+    if (route.startsWith('#/about')) {
+      pageTitle = 'About Us | IHRCWB';
+    } else if (route.startsWith('#/events')) {
+      pageTitle = 'Events | IHRCWB';
+    } else if (route.startsWith('#/members')) {
+      pageTitle = 'Our Members | IHRCWB';
+    } else if (route.startsWith('#/contact')) {
+      pageTitle = 'Contact Us | IHRCWB';
     }
+    document.title = pageTitle;
 
     return () => {
       window.removeEventListener('hashchange', handleHashChange);
@@ -39,22 +39,22 @@ const App: React.FC = () => {
 
   const renderPage = () => {
     switch (route) {
-      case '#/our-work':
-        return <OurWorkPage />;
-      case '#/our-team':
+      case '#/about':
+        return <AboutPage />;
+      case '#/events':
+        return <EventsPage />;
+      case '#/members':
         return <MembersPage />;
-      case '#/get-involved':
-        return <GetInvolvedPage />;
       case '#/contact':
         return <ContactPage />;
       default:
-        // Covers #/ and #home etc.
+        // Covers #/, #home etc.
         return <HomePage />;
     }
   };
 
   return (
-    <div className="bg-white text-gray-800 font-sans">
+    <div className="bg-slate-50 text-slate-700 font-roboto">
       <Header />
       <main>
         {renderPage()}
