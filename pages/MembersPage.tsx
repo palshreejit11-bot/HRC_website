@@ -18,6 +18,11 @@ interface Member {
   title: string;
 }
 
+interface MemberGroups {
+  national: Member[];
+  westBengal: Member[];
+}
+
 const MemberCard: React.FC<Member> = ({ img, name, title }) => (
   <div className="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center">
     <img 
@@ -30,8 +35,15 @@ const MemberCard: React.FC<Member> = ({ img, name, title }) => (
   </div>
 );
 
+const SectionTitle: React.FC<{ title: string }> = ({ title }) => (
+  <div className="text-center my-12">
+    <h2 className="text-3xl md:text-4xl font-bold text-slate-800">{title}</h2>
+    <div className="w-24 h-1 bg-custom-blue mx-auto mt-4"></div>
+  </div>
+);
+
 const MembersPage: React.FC = () => {
-  const [members, setMembers] = useState<Member[]>([]);
+  const [members, setMembers] = useState<MemberGroups | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -56,12 +68,24 @@ const MembersPage: React.FC = () => {
         <div className="container mx-auto px-6">
           {loading ? (
             <LoadingSpinner className="py-20" />
+          ) : members ? (
+            <>
+              <SectionTitle title="National Body" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {members.national.map((member) => (
+                  <MemberCard key={member.name} {...member} />
+                ))}
+              </div>
+
+              <SectionTitle title="West Bengal State Post Holders" />
+               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {members.westBengal.map((member) => (
+                  <MemberCard key={member.name} {...member} />
+                ))}
+              </div>
+            </>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {members.map((member) => (
-                <MemberCard key={member.name} {...member} />
-              ))}
-            </div>
+            <p className="text-center">Could not load members.</p>
           )}
         </div>
       </section>

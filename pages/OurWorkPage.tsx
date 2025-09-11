@@ -58,7 +58,7 @@ const AboutPage: React.FC = () => {
       <PageHeader title={pageData.header.title} bgImage={pageData.header.bgImage} />
 
       <section className="py-20">
-        <div className="container mx-auto px-6 max-w-4xl">
+        <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">
                <h2 className="text-3xl font-bold text-slate-800 mb-4 border-l-4 border-custom-blue pl-4">{pageData.whoWeAre.title}</h2>

@@ -20,8 +20,16 @@ interface ContactInfo {
   mapUrl: string;
 }
 
+interface Headquarters {
+    location: string;
+    address: string[];
+    phone?: string;
+    email?: string;
+}
+
 const ContactPage: React.FC = () => {
   const [contactInfo, setContactInfo] = useState<ContactInfo | null>(null);
+  const [headquarters, setHeadquarters] = useState<Headquarters[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -29,6 +37,7 @@ const ContactPage: React.FC = () => {
       try {
         const data = await getSiteData();
         setContactInfo(data.contactInfo);
+        setHeadquarters(data.headquarters || []);
       } catch (error) {
         console.error("Failed to fetch contact data:", error);
       } finally {
@@ -119,6 +128,26 @@ const ContactPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {headquarters.length > 0 && (
+        <section className="py-20 bg-slate-50">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold text-slate-800 mb-10 text-center">Headquarters Information</h2>
+            <div className="grid md:grid-cols-3 gap-8 text-center">
+              {headquarters.map(hq => (
+                <div key={hq.location} className="bg-white p-6 rounded-lg shadow-md">
+                  <h3 className="text-xl font-bold text-custom-blue mb-4">{hq.location}</h3>
+                  <div className="text-slate-600">
+                    {hq.address.map((line, i) => <p key={i}>{line}</p>)}
+                    {hq.phone && <p className="mt-2">Phone: {hq.phone}</p>}
+                    {hq.email && <p className="mt-2">Email: {hq.email}</p>}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
     </div>
   );
 };
