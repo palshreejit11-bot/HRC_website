@@ -1,12 +1,12 @@
 import { createClient, type Asset, type EntryCollection } from 'contentful';
+import { contentfulConfig } from '../config';
 
-// Create a Contentful client
-// Keys are read from environment variables for security.
-// These must be set in your hosting provider's settings (e.g., Netlify).
+// Create a Contentful client using the imported configuration
 const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID || '',
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
+  space: contentfulConfig.space,
+  accessToken: contentfulConfig.accessToken,
 });
+
 
 // --- HELPER FUNCTIONS TO PARSE CONTENTFUL RESPONSES ---
 
