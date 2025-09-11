@@ -1,7 +1,7 @@
 import React from 'react';
 
 const iconClass = "w-8 h-8";
-const smallIconClass = "w-6 h-6 inline-block mr-3 text-blue-600";
+const smallIconClass = "w-6 h-6 inline-block mr-3 text-red-700";
 
 export const LogoIcon: React.FC<{ className?: string }> = ({ className }) => (
     <svg className={className} viewBox="0 0 1642 1642" fill="none" xmlns="http://www.w3.org/2000/svg">

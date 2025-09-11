@@ -7,6 +7,7 @@ const Header: React.FC = () => {
   const navLinks = [
     { href: '#/', text: 'Home' },
     { href: '#/our-work', text: 'Our Work' },
+    { href: '#/our-team', text: 'Our Team' },
     { href: '#/get-involved', text: 'Get Involved' },
     { href: '#/contact', text: 'Contact Us' },
   ];
@@ -16,7 +17,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto px-6 py-2 flex justify-between items-center">
         <a href="#/" className="flex items-center gap-2">
           <LogoIcon className="h-14 w-14" />
-          <span className="hidden sm:block text-xl font-bold text-blue-900">
+          <span className="hidden sm:block text-xl font-bold text-gray-800">
             IHRC
           </span>
         </a>
@@ -25,7 +26,7 @@ const Header: React.FC = () => {
             <a
               key={link.text}
               href={link.href}
-              className="text-gray-600 hover:text-blue-700 transition-colors duration-300"
+              className="text-gray-600 hover:text-red-700 transition-colors duration-300"
             >
               {link.text}
             </a>
@@ -46,7 +47,7 @@ const Header: React.FC = () => {
               <a
                 key={link.text}
                 href={link.href}
-                className="text-gray-600 hover:text-blue-700 transition-colors duration-300"
+                className="text-gray-600 hover:text-red-700 transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.text}

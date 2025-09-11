@@ -22,12 +22,12 @@ interface InvolvementCardProps {
 
 const InvolvementCard: React.FC<InvolvementCardProps> = ({ icon, title, description }) => (
   <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-start h-full">
-    <div className="bg-blue-100 text-blue-700 p-4 rounded-full mb-5">
+    <div className="bg-amber-100 text-amber-600 p-4 rounded-full mb-5">
       {icon}
     </div>
     <h3 className="text-2xl font-semibold mb-3 text-gray-800">{title}</h3>
     <p className="text-gray-600 flex-grow mb-5">{description}</p>
-    <a href="#/contact" className="mt-auto bg-blue-600 text-white font-bold py-2 px-6 rounded-full hover:bg-blue-700 transition-colors duration-300">
+    <a href="#/contact" className="mt-auto bg-red-700 text-white font-bold py-2 px-6 rounded-full hover:bg-red-800 transition-colors duration-300">
       Contact Us
     </a>
   </div>
@@ -101,7 +101,7 @@ const GetInvolvedPage: React.FC = () => {
     <div className="animate-fade-in">
       <header className="bg-gray-100 py-20 text-center">
         <div className="container mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-blue-900">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800">
             Get Involved & Make a Difference
           </h1>
           <p className="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">

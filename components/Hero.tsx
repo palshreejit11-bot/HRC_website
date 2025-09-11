@@ -2,7 +2,7 @@ import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <section id="home" className="relative h-[80vh] min-h-[500px] flex items-center justify-center text-white text-center bg-cover bg-center" style={{ backgroundImage: "url('https://picsum.photos/1920/1080?grayscale&blur=2')" }}>
+    <section id="home" className="relative h-[80vh] min-h-[500px] flex items-center justify-center text-white text-center bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?q=80&w=1920&auto=format&fit=crop')" }}>
       <div className="absolute inset-0 bg-black/50"></div>
       <div className="relative z-10 p-6 max-w-4xl mx-auto">
         <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg">
@@ -13,7 +13,7 @@ const Hero: React.FC = () => {
         </p>
         <a 
           href="#/our-work" 
-          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105 duration-300"
+          className="bg-red-700 hover:bg-red-800 text-white font-bold py-3 px-8 rounded-full text-lg transition-transform transform hover:scale-105 duration-300"
         >
           Learn More
         </a>

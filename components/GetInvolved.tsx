@@ -2,7 +2,7 @@ import React from 'react';
 
 const GetInvolved: React.FC = () => {
   return (
-    <section id="involved" className="py-20 bg-blue-800 text-white">
+    <section id="involved" className="py-20 bg-gray-800 text-white">
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">Your Support Matters</h2>
         <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8">
@@ -10,7 +10,7 @@ const GetInvolved: React.FC = () => {
         </p>
         <a 
           href="#/get-involved" 
-          className="bg-white text-blue-800 font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-200 transition-transform transform hover:scale-105 duration-300"
+          className="bg-red-700 text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-red-800 transition-transform transform hover:scale-105 duration-300"
         >
           See How You Can Help
         </a>

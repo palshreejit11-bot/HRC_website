@@ -10,7 +10,7 @@ interface ContactCardProps {
 
 const ContactCard: React.FC<ContactCardProps> = ({ title, address, phone, email }) => (
   <div className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
-    <h3 className="text-2xl font-semibold mb-6 text-blue-900 border-b-2 border-blue-200 pb-3">{title}</h3>
+    <h3 className="text-2xl font-semibold mb-6 text-gray-800 border-b-2 border-amber-400 pb-3">{title}</h3>
     <div className="space-y-4 text-gray-700">
       <div className="flex items-start">
         <LocationIcon />
@@ -29,7 +29,7 @@ const ContactCard: React.FC<ContactCardProps> = ({ title, address, phone, email 
       {email && (
         <div className="flex items-center">
           <EmailIcon />
-          <a href={`mailto:${email}`} className="text-blue-600 hover:underline">{email}</a>
+          <a href={`mailto:${email}`} className="text-red-700 hover:underline">{email}</a>
         </div>
       )}
     </div>
@@ -62,7 +62,7 @@ const ContactPage: React.FC = () => {
     <div className="animate-fade-in">
       <header className="bg-gray-100 py-20 text-center">
         <div className="container mx-auto px-6">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-blue-900">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-gray-800">
             Get in Touch
           </h1>
           <p className="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">

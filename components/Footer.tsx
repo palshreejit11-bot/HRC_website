@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const Footer: React.FC = () => {
@@ -14,7 +13,7 @@ const Footer: React.FC = () => {
             <h4 className="font-semibold text-white mb-2">India Headquarters</h4>
             <p>2nd Floor, 201, Shanti Kunj Main, Vasant Kunj, New Delhi, India 110070</p>
             <p>Phone: +91 8595569502</p>
-            <p>Email: <a href="mailto:contact@ihrc.co.in" className="hover:text-blue-400">contact@ihrc.co.in</a></p>
+            <p>Email: <a href="mailto:contact@ihrc.co.in" className="hover:text-amber-400">contact@ihrc.co.in</a></p>
           </div>
         </div>
       </div>

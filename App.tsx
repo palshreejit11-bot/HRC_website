@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import OurWorkPage from './pages/OurWorkPage';
 import GetInvolvedPage from './pages/GetInvolvedPage';
 import ContactPage from './pages/ContactPage';
+import MembersPage from './pages/MembersPage';
 
 const App: React.FC = () => {
   // Simple hash-based routing
@@ -21,6 +22,8 @@ const App: React.FC = () => {
     // Set document title based on the current route
     if (route === '#/our-work') {
       document.title = 'Our Work - International Human Rights Council';
+    } else if (route === '#/our-team') {
+      document.title = 'Our Team - International Human Rights Council';
     } else if (route === '#/get-involved') {
       document.title = 'Get Involved - International Human Rights Council';
     } else if (route === '#/contact') {
@@ -38,6 +41,8 @@ const App: React.FC = () => {
     switch (route) {
       case '#/our-work':
         return <OurWorkPage />;
+      case '#/our-team':
+        return <MembersPage />;
       case '#/get-involved':
         return <GetInvolvedPage />;
       case '#/contact':
