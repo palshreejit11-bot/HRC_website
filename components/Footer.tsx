@@ -3,10 +3,11 @@ import { FacebookIcon, InstagramIcon, TwitterIcon, LinkedInIcon, LocationIcon, P
 import { getSiteData } from '../api/contentful';
 
 interface SiteData {
+  logoUrl: string;
   contactInfo: {
     address: string;
     phone: string;
-    email: string;
+email: string;
   };
   socialLinks: {
     facebook: string;
@@ -21,8 +22,12 @@ const Footer: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getSiteData();
-      setSiteData(data);
+      try {
+        const data = await getSiteData();
+        setSiteData(data);
+      } catch (error) {
+        console.error("Failed to fetch site data for footer:", error);
+      }
     };
     fetchData();
   }, []);
@@ -34,7 +39,7 @@ const Footer: React.FC = () => {
           {/* About Section */}
           <div className="md:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <img src="https://wbhrc.netlify.app/assets/logo-85d7c177.png" alt="IHRCWB Logo" className="h-10 w-10" />
+              <img src={siteData?.logoUrl || "https://wbhrc.netlify.app/assets/logo-85d7c177.png"} alt="IHRCWB Logo" className="h-10 w-10" />
               <h3 className="text-xl font-bold text-white font-poppins">IHRCWB</h3>
             </div>
             <p className="text-sm text-gray-400 leading-relaxed">
@@ -42,10 +47,10 @@ const Footer: React.FC = () => {
             </p>
             {siteData && (
               <div className="flex space-x-4 mt-6">
-                <a href={siteData.socialLinks.facebook} className="text-gray-400 hover:text-custom-blue transition-colors"><FacebookIcon /></a>
-                <a href={siteData.socialLinks.instagram} className="text-gray-400 hover:text-custom-blue transition-colors"><InstagramIcon /></a>
-                <a href={siteData.socialLinks.twitter} className="text-gray-400 hover:text-custom-blue transition-colors"><TwitterIcon /></a>
-                <a href={siteData.socialLinks.linkedin} className="text-gray-400 hover:text-custom-blue transition-colors"><LinkedInIcon /></a>
+                <a href={siteData.socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-custom-red transition-colors"><FacebookIcon /></a>
+                <a href={siteData.socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-custom-red transition-colors"><InstagramIcon /></a>
+                <a href={siteData.socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-custom-red transition-colors"><TwitterIcon /></a>
+                <a href={siteData.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-custom-red transition-colors"><LinkedInIcon /></a>
               </div>
             )}
           </div>
@@ -54,12 +59,12 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold text-white mb-4 font-poppins">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="#/about" className="text-sm text-gray-400 hover:text-custom-blue transition-colors">About Us</a></li>
-              <li><a href="#/how-we-work" className="text-sm text-gray-400 hover:text-custom-blue transition-colors">How We Work</a></li>
-              <li><a href="#/events" className="text-sm text-gray-400 hover:text-custom-blue transition-colors">Events</a></li>
-              <li><a href="#/get-involved" className="text-sm text-gray-400 hover:text-custom-blue transition-colors">Get Involved</a></li>
-              <li><a href="#/members" className="text-sm text-gray-400 hover:text-custom-blue transition-colors">Members</a></li>
-              <li><a href="#/contact" className="text-sm text-gray-400 hover:text-custom-blue transition-colors">Contact</a></li>
+              <li><a href="#/about" className="text-sm text-gray-400 hover:text-custom-red transition-colors">About Us</a></li>
+              <li><a href="#/how-we-work" className="text-sm text-gray-400 hover:text-custom-red transition-colors">How We Work</a></li>
+              <li><a href="#/events" className="text-sm text-gray-400 hover:text-custom-red transition-colors">Events</a></li>
+              <li><a href="#/get-involved" className="text-sm text-gray-400 hover:text-custom-red transition-colors">Get Involved</a></li>
+              <li><a href="#/members" className="text-sm text-gray-400 hover:text-custom-red transition-colors">Members</a></li>
+              <li><a href="#/contact" className="text-sm text-gray-400 hover:text-custom-red transition-colors">Contact</a></li>
             </ul>
           </div>
 
@@ -74,11 +79,11 @@ const Footer: React.FC = () => {
                 </li>
                 <li className="flex items-start">
                   <PhoneIcon />
-                  <a href={`tel:${siteData.contactInfo.phone}`} className="text-gray-400 hover:text-custom-blue transition-colors">{siteData.contactInfo.phone}</a>
+                  <a href={`tel:${siteData.contactInfo.phone}`} className="text-gray-400 hover:text-custom-red transition-colors">{siteData.contactInfo.phone}</a>
                 </li>
                 <li className="flex items-start">
                   <EmailIcon />
-                  <a href={`mailto:${siteData.contactInfo.email}`} className="text-gray-400 hover:text-custom-blue transition-colors">{siteData.contactInfo.email}</a>
+                  <a href={`mailto:${siteData.contactInfo.email}`} className="text-gray-400 hover:text-custom-red transition-colors">{siteData.contactInfo.email}</a>
                 </li>
               </ul>
             ) : (

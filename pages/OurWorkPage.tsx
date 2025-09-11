@@ -13,7 +13,7 @@ const PageHeader: React.FC<{ title: string, bgImage: string }> = ({ title, bgIma
 );
 
 const CheckIcon = () => (
-    <svg className="w-6 h-6 text-custom-blue mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <svg className="w-6 h-6 text-custom-red mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
     </svg>
 );
@@ -61,7 +61,7 @@ const AboutPage: React.FC = () => {
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">
-               <h2 className="text-3xl font-bold text-slate-800 mb-4 border-l-4 border-custom-blue pl-4">{pageData.whoWeAre.title}</h2>
+               <h2 className="text-3xl font-bold text-slate-800 mb-4 border-l-4 border-custom-red pl-4">{pageData.whoWeAre.title}</h2>
                 <p className="text-slate-600 leading-relaxed mb-4">
                   {pageData.whoWeAre.paragraph1}
                 </p>
@@ -80,11 +80,11 @@ const AboutPage: React.FC = () => {
         <div className="container mx-auto px-6 max-w-5xl">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold text-slate-800 mb-4 border-l-4 border-custom-blue pl-4">{pageData.vision.title}</h2>
+              <h2 className="text-3xl font-bold text-slate-800 mb-4 border-l-4 border-custom-red pl-4">{pageData.vision.title}</h2>
               <p className="text-slate-600 leading-relaxed">{pageData.vision.text}</p>
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-slate-800 mb-4 border-l-4 border-custom-blue pl-4">{pageData.mission.title}</h2>
+              <h2 className="text-3xl font-bold text-slate-800 mb-4 border-l-4 border-custom-red pl-4">{pageData.mission.title}</h2>
               <p className="text-slate-600 leading-relaxed">{pageData.mission.text}</p>
             </div>
           </div>
@@ -95,7 +95,7 @@ const AboutPage: React.FC = () => {
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-slate-800">{pageData.objectives.title}</h2>
-            <div className="w-24 h-1 bg-custom-blue mx-auto mt-4"></div>
+            <div className="w-24 h-1 bg-custom-red mx-auto mt-4"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 max-w-4xl mx-auto">
             {pageData.objectives.list.map((objective, index) => (

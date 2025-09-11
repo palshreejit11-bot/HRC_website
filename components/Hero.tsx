@@ -15,7 +15,7 @@ const Hero: React.FC<HeroProps> = ({ slides = [] }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    if (slides.length === 0) return;
+    if (slides.length <= 1) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000); // Change slide every 5 seconds
@@ -24,7 +24,7 @@ const Hero: React.FC<HeroProps> = ({ slides = [] }) => {
   }, [slides.length]);
 
   if (slides.length === 0) {
-    return <section className="h-[90vh] min-h-[600px] w-full bg-slate-200"></section>;
+    return <section className="h-[90vh] min-h-[600px] w-full bg-slate-200 flex items-center justify-center"><p>Loading Slides...</p></section>;
   }
 
   return (
@@ -40,7 +40,7 @@ const Hero: React.FC<HeroProps> = ({ slides = [] }) => {
       ))}
       <div className="relative z-10 flex items-center justify-center h-full text-white text-center">
         <div className="max-w-4xl mx-auto px-6">
-            <p className="text-lg md:text-xl text-custom-blue font-semibold mb-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <p className="text-lg md:text-xl text-custom-red font-semibold mb-4 animate-fade-in" style={{ animationDelay: '0.2s' }}>
               {slides[currentSlide].subtitle}
             </p>
             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4 drop-shadow-lg animate-fade-in" style={{ animationDelay: '0.4s' }}>
@@ -51,7 +51,7 @@ const Hero: React.FC<HeroProps> = ({ slides = [] }) => {
             </p>
             <a
               href="#/about"
-              className="bg-custom-blue hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-md text-lg transition-transform transform hover:scale-105 duration-300 animate-fade-in"
+              className="bg-custom-red hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-md text-lg transition-transform transform hover:scale-105 duration-300 animate-fade-in"
               style={{ animationDelay: '0.8s' }}
             >
               Learn More
@@ -63,7 +63,7 @@ const Hero: React.FC<HeroProps> = ({ slides = [] }) => {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-colors duration-300 ${currentSlide === index ? 'bg-custom-blue' : 'bg-white/50'}`}
+            className={`w-3 h-3 rounded-full transition-colors duration-300 ${currentSlide === index ? 'bg-custom-red' : 'bg-white/50'}`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}

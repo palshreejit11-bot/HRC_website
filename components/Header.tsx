@@ -1,7 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { getSiteData } from '../api/contentful';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [logoUrl, setLogoUrl] = useState('https://wbhrc.netlify.app/assets/logo-85d7c177.png');
+
+  useEffect(() => {
+    const fetchLogo = async () => {
+        try {
+            const data = await getSiteData();
+            if (data.logoUrl) {
+                setLogoUrl(data.logoUrl);
+            }
+        } catch (error) {
+            console.error("Failed to fetch site settings for logo:", error);
+        }
+    };
+    fetchLogo();
+  }, []);
 
   const navLinks = [
     { href: '#/', text: 'Home' },
@@ -17,7 +33,7 @@ const Header: React.FC = () => {
     <header className="bg-dark-bg/90 backdrop-blur-md text-white sticky top-0 z-50 shadow-lg font-poppins">
       <div className="container mx-auto px-6 py-3 flex justify-between items-center">
         <a href="#/" className="flex items-center gap-2">
-          <img src="https://wbhrc.netlify.app/assets/logo-85d7c177.png" alt="IHRCWB Logo" className="h-12 w-12" />
+          <img src={logoUrl} alt="IHRCWB Logo" className="h-12 w-12" />
           <span className="hidden sm:block text-2xl font-bold text-white">
             IHRCWB
           </span>
@@ -27,14 +43,14 @@ const Header: React.FC = () => {
             <a
               key={link.text}
               href={link.href}
-              className="text-gray-300 hover:text-custom-blue transition-colors duration-300 text-sm font-medium"
+              className="text-gray-300 hover:text-custom-red transition-colors duration-300 text-sm font-medium"
             >
               {link.text}
             </a>
           ))}
           <a
             href="#/contact"
-            className="bg-custom-blue text-white font-semibold py-2 px-5 rounded-md text-sm hover:bg-opacity-90 transition-all duration-300"
+            className="bg-custom-red text-white font-semibold py-2 px-5 rounded-md text-sm hover:bg-opacity-90 transition-all duration-300"
           >
             Get In Touch
           </a>
@@ -54,7 +70,7 @@ const Header: React.FC = () => {
               <a
                 key={link.text}
                 href={link.href}
-                className="text-gray-300 hover:text-custom-blue transition-colors duration-300"
+                className="text-gray-300 hover:text-custom-red transition-colors duration-300"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {link.text}
@@ -62,7 +78,7 @@ const Header: React.FC = () => {
             ))}
              <a
               href="#/contact"
-              className="bg-custom-blue text-white font-semibold py-2 px-5 rounded-md hover:bg-opacity-90 transition-all duration-300"
+              className="bg-custom-red text-white font-semibold py-2 px-5 rounded-md hover:bg-opacity-90 transition-all duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
               Get In Touch

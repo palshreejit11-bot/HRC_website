@@ -3,11 +3,12 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/OurWorkPage';
-import EventsPage from './pages/GetInvolvedPage';
+import EventsPage from './pages/EventsPage';
 import ContactPage from './pages/ContactPage';
 import MembersPage from './pages/MembersPage';
 import HowWeWorkPage from './pages/HowWeWorkPage';
-import GetInvolvedPageReal from './pages/GetInvolvedPageReal';
+import GetInvolvedPage from './pages/GetInvolvedPage';
+import GalleryPage from './pages/GalleryPage';
 
 const App: React.FC = () => {
   // Simple hash-based routing
@@ -27,6 +28,8 @@ const App: React.FC = () => {
       pageTitle = 'About Us | IHRCWB';
     } else if (route.startsWith('#/how-we-work')) {
       pageTitle = 'How We Work | IHRCWB';
+    } else if (route.startsWith('#/gallery')) {
+      pageTitle = 'Gallery | IHRCWB';
     } else if (route.startsWith('#/events')) {
       pageTitle = 'Events | IHRCWB';
     } else if (route.startsWith('#/get-involved')) {
@@ -49,10 +52,12 @@ const App: React.FC = () => {
         return <AboutPage />;
       case '#/how-we-work':
         return <HowWeWorkPage />;
+      case '#/gallery':
+        return <GalleryPage />;
       case '#/events':
         return <EventsPage />;
       case '#/get-involved':
-        return <GetInvolvedPageReal />;
+        return <GetInvolvedPage />;
       case '#/members':
         return <MembersPage />;
       case '#/contact':

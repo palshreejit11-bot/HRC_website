@@ -50,7 +50,6 @@ const ContactPage: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert('Thank you for your message! This is a demo form and does not send emails.');
-    // In a real application, you would handle form submission here using a service like EmailJS or a backend endpoint.
     (e.target as HTMLFormElement).reset();
   };
 
@@ -67,22 +66,22 @@ const ContactPage: React.FC = () => {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-slate-600">Full Name</label>
-                  <input type="text" id="name" name="name" required className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue focus:border-custom-blue" />
+                  <input type="text" id="name" name="name" required className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-red focus:border-custom-red" />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-slate-600">Email Address</label>
-                  <input type="email" id="email" name="email" required className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue focus:border-custom-blue" />
+                  <input type="email" id="email" name="email" required className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-red focus:border-custom-red" />
                 </div>
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-slate-600">Subject</label>
-                  <input type="text" id="subject" name="subject" required className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue focus:border-custom-blue" />
+                  <input type="text" id="subject" name="subject" required className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-red focus:border-custom-red" />
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-slate-600">Message</label>
-                  <textarea id="message" name="message" rows={5} required className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue focus:border-custom-blue"></textarea>
+                  <textarea id="message" name="message" rows={5} required className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-red focus:border-custom-red"></textarea>
                 </div>
                 <div>
-                  <button type="submit" className="w-full bg-custom-blue text-white font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-300">
+                  <button type="submit" className="w-full bg-custom-red text-white font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-300">
                     Send Message
                   </button>
                 </div>
@@ -103,25 +102,27 @@ const ContactPage: React.FC = () => {
                     </li>
                     <li className="flex items-start">
                       <PhoneIcon />
-                      <a href={`tel:${contactInfo.phone}`} className="hover:text-custom-blue">{contactInfo.phone}</a>
+                      <a href={`tel:${contactInfo.phone}`} className="hover:text-custom-red">{contactInfo.phone}</a>
                     </li>
                     <li className="flex items-start">
                       <EmailIcon />
-                      <a href={`mailto:${contactInfo.email}`} className="hover:text-custom-blue">{contactInfo.email}</a>
+                      <a href={`mailto:${contactInfo.email}`} className="hover:text-custom-red">{contactInfo.email}</a>
                     </li>
                   </ul>
-                  <div className="w-full h-80 rounded-lg overflow-hidden shadow-lg">
-                    <iframe
-                      src={contactInfo.mapUrl}
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen={false}
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="IHRCWB Location"
-                    ></iframe>
-                  </div>
+                  {contactInfo.mapUrl && (
+                    <div className="w-full h-80 rounded-lg overflow-hidden shadow-lg">
+                      <iframe
+                        src={contactInfo.mapUrl}
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen={false}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="IHRCWB Location"
+                      ></iframe>
+                    </div>
+                  )}
                 </>
               )}
             </div>
@@ -136,11 +137,11 @@ const ContactPage: React.FC = () => {
             <div className="grid md:grid-cols-3 gap-8 text-center">
               {headquarters.map(hq => (
                 <div key={hq.location} className="bg-white p-6 rounded-lg shadow-md">
-                  <h3 className="text-xl font-bold text-custom-blue mb-4">{hq.location}</h3>
-                  <div className="text-slate-600">
+                  <h3 className="text-xl font-bold text-custom-red mb-4">{hq.location}</h3>
+                  <div className="text-slate-600 text-sm">
                     {hq.address.map((line, i) => <p key={i}>{line}</p>)}
-                    {hq.phone && <p className="mt-2">Phone: {hq.phone}</p>}
-                    {hq.email && <p className="mt-2">Email: {hq.email}</p>}
+                    {hq.phone && <p className="mt-2"><b>Phone:</b> {hq.phone}</p>}
+                    {hq.email && <p className="mt-2"><b>Email:</b> {hq.email}</p>}
                   </div>
                 </div>
               ))}

@@ -31,14 +31,14 @@ const MemberCard: React.FC<Member> = ({ img, name, title }) => (
         className="w-40 h-40 rounded-full object-cover mb-5 border-4 border-white shadow-md"
     />
     <h3 className="text-xl font-bold text-slate-800">{name}</h3>
-    <p className="text-custom-blue font-medium">{title}</p>
+    <p className="text-custom-red font-medium">{title}</p>
   </div>
 );
 
 const SectionTitle: React.FC<{ title: string }> = ({ title }) => (
   <div className="text-center my-12">
     <h2 className="text-3xl md:text-4xl font-bold text-slate-800">{title}</h2>
-    <div className="w-24 h-1 bg-custom-blue mx-auto mt-4"></div>
+    <div className="w-24 h-1 bg-custom-red mx-auto mt-4"></div>
   </div>
 );
 
@@ -70,19 +70,27 @@ const MembersPage: React.FC = () => {
             <LoadingSpinner className="py-20" />
           ) : members ? (
             <>
-              <SectionTitle title="National Body" />
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                {members.national.map((member) => (
-                  <MemberCard key={member.name} {...member} />
-                ))}
-              </div>
+              {members.national.length > 0 && (
+                <>
+                    <SectionTitle title="National Body" />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {members.national.map((member) => (
+                        <MemberCard key={member.name} {...member} />
+                        ))}
+                    </div>
+                </>
+              )}
 
-              <SectionTitle title="West Bengal State Post Holders" />
-               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                {members.westBengal.map((member) => (
-                  <MemberCard key={member.name} {...member} />
-                ))}
-              </div>
+              {members.westBengal.length > 0 && (
+                <>
+                    <SectionTitle title="West Bengal State Post Holders" />
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {members.westBengal.map((member) => (
+                        <MemberCard key={member.name} {...member} />
+                        ))}
+                    </div>
+                </>
+              )}
             </>
           ) : (
             <p className="text-center">Could not load members.</p>

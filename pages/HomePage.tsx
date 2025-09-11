@@ -56,7 +56,7 @@ const SectionTitle: React.FC<{ children: React.ReactNode, subtitle: string }> = 
     <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-bold text-slate-800">{children}</h2>
         <p className="text-lg text-slate-600 mt-2">{subtitle}</p>
-        <div className="w-24 h-1 bg-custom-blue mx-auto mt-4"></div>
+        <div className="w-24 h-1 bg-custom-red mx-auto mt-4"></div>
     </div>
 );
 
@@ -69,7 +69,7 @@ const LatestEventsSection: React.FC<{ events: Event[] }> = ({ events }) => (
                     <div key={event.title} className="bg-white rounded-lg shadow-lg overflow-hidden group">
                         <img src={event.img} alt={event.title} className="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300" />
                         <div className="p-6">
-                            <p className="text-sm text-custom-blue font-semibold mb-2">{event.date}</p>
+                            <p className="text-sm text-custom-red font-semibold mb-2">{event.date}</p>
                             <h3 className="text-xl font-bold text-slate-800 mb-3">{event.title}</h3>
                             <p className="text-slate-600 text-sm">{event.description}</p>
                         </div>
@@ -89,12 +89,12 @@ const TeamPreviewSection: React.FC<{ members: Member[] }> = ({ members }) => (
                     <div key={member.name} className="text-center">
                         <img src={member.img} alt={member.name} className="w-40 h-40 rounded-full mx-auto mb-4 object-cover shadow-lg" />
                         <h3 className="text-lg font-bold text-slate-800">{member.name}</h3>
-                        <p className="text-custom-blue">{member.title}</p>
+                        <p className="text-custom-red">{member.title}</p>
                     </div>
                 ))}
             </div>
             <div className="text-center mt-12">
-                <a href="#/members" className="bg-custom-blue text-white font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-300">
+                <a href="#/members" className="bg-custom-red text-white font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-300">
                     View All Members
                 </a>
             </div>
@@ -103,13 +103,13 @@ const TeamPreviewSection: React.FC<{ members: Member[] }> = ({ members }) => (
 );
 
 const BecomeMemberCTA: React.FC<{ content: CtaContent }> = ({ content }) => (
-    <section id="join" className="py-20 bg-custom-blue text-white">
+    <section id="join" className="py-20 bg-custom-red text-white">
         <div className="container mx-auto px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">{content.title}</h2>
             <p className="text-lg md:text-xl max-w-3xl mx-auto mb-8">
                 {content.text}
             </p>
-            <a href={content.buttonLink} className="bg-white text-custom-blue font-bold py-3 px-8 rounded-md text-lg hover:bg-slate-100 transition-all duration-300">
+            <a href={content.buttonLink} className="bg-white text-custom-red font-bold py-3 px-8 rounded-md text-lg hover:bg-slate-100 transition-all duration-300">
                 {content.buttonText}
             </a>
         </div>

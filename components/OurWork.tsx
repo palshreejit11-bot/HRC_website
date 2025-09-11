@@ -24,7 +24,7 @@ const WelcomeSection: React.FC<{ content: WelcomeContent }> = ({ content }) => {
             </p>
             <a
               href="#/about"
-              className="bg-custom-blue text-white font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-300"
+              className="bg-custom-red text-white font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-300"
             >
               Read More
             </a>
