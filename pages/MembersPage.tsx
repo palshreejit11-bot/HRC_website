@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getAllMembers } from '../api/mockApi';
+import { getAllMembers } from '../api/contentful';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 // Reusable component for page headers

@@ -1,10 +1,11 @@
 import { createClient, type Asset, type EntryCollection } from 'contentful';
-import { contentfulConfig } from '../config';
 
 // Create a Contentful client
+// Keys are read from environment variables for security.
+// These must be set in your hosting provider's settings (e.g., Netlify).
 const client = createClient({
-  space: contentfulConfig.space,
-  accessToken: contentfulConfig.accessToken,
+  space: process.env.CONTENTFUL_SPACE_ID || '',
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || '',
 });
 
 // --- HELPER FUNCTIONS TO PARSE CONTENTFUL RESPONSES ---
@@ -36,12 +37,27 @@ const parseEvent = (entry: any) => ({
 const parseHeroSlides = (assets: Asset[] | undefined) => {
     if (!assets) return [];
     // The text content for slides will be stored in the asset's title and description fields in Contentful
-    return assets.map(asset => ({
-        image: parseAsset(asset),
-        title: asset.fields.title || 'Title not set',
-        subtitle: (asset.fields.description || '').split('|')[0] || 'Subtitle not set', // Using description for "subtitle|description"
-        description: (asset.fields.description || '').split('|')[1] || 'Description not set',
-    }));
+    // FIX: The `title` and `description` fields from Contentful can be objects
+    // if multiple locales are used, which causes type errors.
+    // This logic ensures we get a string value in all cases before using it.
+    return assets.map(asset => {
+        let description = asset.fields.description || '';
+        if (typeof description === 'object') {
+            description = Object.values(description)[0] || '';
+        }
+        
+        let title = asset.fields.title || 'Title not set';
+        if (typeof title === 'object') {
+            title = Object.values(title)[0] || 'Title not set';
+        }
+
+        return {
+            image: parseAsset(asset),
+            title: title,
+            subtitle: (description).split('|')[0] || 'Subtitle not set', // Using description for "subtitle|description"
+            description: (description).split('|')[1] || 'Description not set',
+        };
+    });
 };
 
 
