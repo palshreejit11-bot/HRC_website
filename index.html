@@ -7,20 +7,21 @@
     <title>IHRCWB | International Human Rights Council</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Georgia&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              'custom-red': '#C8102E', // Changed theme color to red
+              'custom-red': '#B91C1C',
+              'dark-charcoal': '#1F2937',
               'dark-bg': '#0f172a',
               'dark-bg-secondary': '#1e293b',
             },
             fontFamily: {
-              'poppins': ['Poppins', 'sans-serif'],
-              'roboto': ['Roboto', 'sans-serif'],
+              'montserrat': ['Montserrat', 'sans-serif'],
+              'georgia': ['Georgia', 'serif'],
             }
           }
         }
@@ -28,11 +29,12 @@
     </script>
     <style>
       body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #f8fafc; /* bg-slate-50 */
+        font-family: 'Georgia', serif;
+        background-color: #ffffff;
+        color: #1F2937;
       }
       h1, h2, h3, h4, h5, h6 {
-        font-family: 'Poppins', sans-serif;
+        font-family: 'Montserrat', sans-serif;
       }
       @keyframes fadeIn {
         from { opacity: 0; transform: translateY(10px); }
@@ -53,7 +55,7 @@
 }
 </script>
 </head>
-  <body class="bg-slate-50">
+  <body class="bg-white">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>
