@@ -46,7 +46,7 @@ const OurWorkPage: React.FC = () => {
       <PageHeader
         title="Our Core Areas of Work"
         breadcrumb="What We Do"
-        bgImage="https://images.unsplash.com/photo-1519781541452-4a6639535b4a?q=80&w=2070&auto=format&fit=crop"
+        bgImage="https://res.cloudinary.com/dzrrjkubt/image/upload/v1757680329/A_wide-angle_hopefu_hhdfc6.png"
       />
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 space-y-16">
