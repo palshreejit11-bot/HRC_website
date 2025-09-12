@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getAllMembers } from '../api/contentful';
+import { getTeamMembers } from '../api/contentful';
 import LoadingSpinner from '../components/LoadingSpinner';
 
 // Reusable component for page headers
@@ -16,6 +16,7 @@ interface Member {
   img: string;
   name: string;
   title: string;
+  bio?: string;
 }
 
 interface MemberGroups {
@@ -23,7 +24,7 @@ interface MemberGroups {
   westBengal: Member[];
 }
 
-const MemberCard: React.FC<Member> = ({ img, name, title }) => (
+const MemberCard: React.FC<Member> = ({ img, name, title, bio }) => (
   <div className="bg-dark-bg-secondary p-6 rounded-lg shadow-lg text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center">
     <img 
         src={img} 
@@ -32,6 +33,7 @@ const MemberCard: React.FC<Member> = ({ img, name, title }) => (
     />
     <h3 className="text-xl font-bold text-white">{name}</h3>
     <p className="text-custom-red font-medium">{title}</p>
+    {bio && <p className="text-gray-400 text-sm mt-3 font-georgia leading-relaxed">{bio}</p>}
   </div>
 );
 
@@ -49,7 +51,7 @@ const MembersPage: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const data = await getAllMembers();
+        const data = await getTeamMembers();
         setMembers(data);
       } catch (error) {
         console.error("Failed to fetch members:", error);

@@ -2,7 +2,8 @@ import { createClient, ContentfulClientApi, Entry } from 'contentful';
 import { contentfulConfig } from '../config';
 
 // Initialize the Contentful client
-const client: ContentfulClientApi = createClient({
+// FIX: Added <undefined> to ContentfulClientApi type to satisfy generic requirement.
+const client: ContentfulClientApi<undefined> = createClient({
   space: contentfulConfig.space,
   accessToken: contentfulConfig.accessToken,
 });
@@ -48,19 +49,22 @@ const transformMember = (entry: Entry<any>): any => ({
     img: transformImage(entry.fields.photo) || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png',
     name: entry.fields.name || 'N/A',
     title: entry.fields.title || 'N/A',
+    bio: entry.fields.bio || '',
     body: entry.fields.body || 'National', // 'National' or 'West Bengal'
 });
 
 const transformEvent = (entry: Entry<any>): any => ({
     img: transformImage(entry.fields.image) || 'https://wbhrc.netlify.app/assets/event-placeholder.jpg',
     title: entry.fields.title || 'Untitled Event',
-    date: entry.fields.date ? new Date(entry.fields.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Date TBD',
+    // FIX: Added a type check to ensure entry.fields.date is a string before creating a Date object.
+    date: entry.fields.date && typeof entry.fields.date === 'string' ? new Date(entry.fields.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'Date TBD',
     description: entry.fields.description || 'No description available.',
 });
 
+// FIX: Added type casts to ensure returned values are strings.
 const transformContentSection = (entry: Entry<any>): any => ({
-    title: entry.fields.title || '',
-    content: entry.fields.content || '',
+    title: (entry.fields.title as string) || '',
+    content: (entry.fields.content as string) || '',
 });
 
 
@@ -116,27 +120,29 @@ export const getAboutPageData = async () => {
     if (!entries.items.length) throw new Error("About page data not found.");
 
     const page = entries.items[0].fields;
+    // FIX: Cast fields to string to match the AboutPageData interface.
     return {
-        header: { title: page.headerTitle || 'About Us', bgImage: transformImage(page.headerBgImage) },
+        header: { title: (page.headerTitle as string) || 'About Us', bgImage: transformImage(page.headerBgImage) },
         whoWeAre: {
-            title: page.whoWeAreTitle || '',
-            paragraph1: page.whoWeAreParagraph1 || '',
-            paragraph2: page.whoWeAreParagraph2 || '',
+            title: (page.whoWeAreTitle as string) || '',
+            paragraph1: (page.whoWeAreParagraph1 as string) || '',
+            paragraph2: (page.whoWeAreParagraph2 as string) || '',
             imageUrl: transformImage(page.whoWeAreImage),
         },
-        vision: { title: page.visionTitle || 'Our Vision', text: page.visionText || '' },
-        mission: { title: page.missionTitle || 'Our Mission', text: page.missionText || '' },
+        vision: { title: (page.visionTitle as string) || 'Our Vision', text: (page.visionText as string) || '' },
+        mission: { title: (page.missionTitle as string) || 'Our Mission', text: (page.missionText as string) || '' },
         objectives: {
-            title: page.objectivesTitle || 'Our Objectives',
-            list: page.objectivesList || [],
+            title: (page.objectivesTitle as string) || 'Our Objectives',
+            list: (page.objectivesList as string[]) || [],
         },
     };
 };
 
 // Fetch all Members and group them
 // Assumes content type 'member' with a 'body' field ('National' or 'West Bengal')
-export const getAllMembers = async () => {
-    const entries = await client.getEntries({ content_type: 'member', order: 'fields.name' });
+export const getTeamMembers = async () => {
+    // FIX: The 'order' parameter expects an array of strings.
+    const entries = await client.getEntries({ content_type: 'member', order: ['fields.name'] });
     const allMembers = entries.items.map(transformMember);
     return {
         national: allMembers.filter(m => m.body === 'National'),
@@ -147,7 +153,8 @@ export const getAllMembers = async () => {
 // Fetch all Events
 // Assumes content type 'event'
 export const getAllEvents = async () => {
-    const entries = await client.getEntries({ content_type: 'event', order: '-fields.date' });
+    // FIX: The 'order' parameter expects an array of strings.
+    const entries = await client.getEntries({ content_type: 'event', order: ['-fields.date'] });
     return entries.items.map(transformEvent);
 };
 
@@ -158,8 +165,9 @@ export const getHowWeWorkPageData = async () => {
     if (!entries.items.length) throw new Error("How We Work page data not found.");
     
     const page = entries.items[0].fields;
+    // FIX: Cast fields to string to match the HowWeWorkPageData interface.
     return {
-        header: { title: page.headerTitle || 'How We Work', bgImage: transformImage(page.headerBgImage) },
+        header: { title: (page.headerTitle as string) || 'How We Work', bgImage: transformImage(page.headerBgImage) },
         sections: (page.sections as Entry<any>[])?.map(transformContentSection) || [],
         slideshowImages: (page.slideshowImages as any[])?.map(transformImage) || [],
     };
@@ -172,18 +180,20 @@ export const getGetInvolvedPageData = async () => {
     if (!entries.items.length) throw new Error("Get Involved page data not found.");
 
     const page = entries.items[0].fields;
+    // FIX: Cast fields to string to match the GetInvolvedPageData interface.
     return {
-        header: { title: page.headerTitle || 'Get Involved', bgImage: transformImage(page.headerBgImage) },
-        intro: { title: page.introTitle || '', text: page.introText || '' },
+        header: { title: (page.headerTitle as string) || 'Get Involved', bgImage: transformImage(page.headerBgImage) },
+        intro: { title: (page.introTitle as string) || '', text: (page.introText as string) || '' },
         sections: (page.sections as Entry<any>[])?.map(transformContentSection) || [],
-        cta: { title: page.ctaTitle || '', text: page.ctaText || '' },
+        cta: { title: (page.ctaTitle as string) || '', text: (page.ctaText as string) || '' },
     };
 };
 
 // Fetch all images for the gallery
 // Assumes content type 'galleryImage'
 export const getGalleryImages = async () => {
-    const entries = await client.getEntries({ content_type: 'galleryImage', order: '-sys.createdAt' });
+    // FIX: The 'order' parameter expects an array of strings.
+    const entries = await client.getEntries({ content_type: 'galleryImage', order: ['-sys.createdAt'] });
     return entries.items.map(item => ({
         id: item.sys.id,
         title: item.fields.title as string || 'Untitled',
