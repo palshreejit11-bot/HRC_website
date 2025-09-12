@@ -1,154 +1,89 @@
-import React, { useState, useEffect } from 'react';
-import { LocationIcon, PhoneIcon, EmailIcon } from '../components/Icons';
-import { getSiteData } from '../api/contentful';
-import LoadingSpinner from '../components/LoadingSpinner';
-
-// Reusable component for page headers
-const PageHeader: React.FC<{ title: string, bgImage: string }> = ({ title, bgImage }) => (
-  <header className="relative py-28 md:py-40 bg-cover bg-center text-center text-white" style={{ backgroundImage: `url('${bgImage}')` }}>
-    <div className="absolute inset-0 bg-black/60"></div>
-    <div className="relative z-10">
-      <h1 className="text-4xl md:text-5xl font-extrabold">{title}</h1>
-    </div>
-  </header>
-);
-
-interface ContactInfo {
-  address: string;
-  phone: string;
-  email: string;
-  mapUrl: string;
-}
-
-interface Headquarters {
-    location: string;
-    address: string[];
-    phone?: string;
-    email?: string;
-}
+import React from 'react';
+import PageHeader from '../components/PageHeader';
 
 const ContactPage: React.FC = () => {
-  const [contactInfo, setContactInfo] = useState<ContactInfo | null>(null);
-  const [headquarters, setHeadquarters] = useState<Headquarters[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getSiteData();
-        setContactInfo(data.contactInfo);
-        setHeadquarters(data.headquarters || []);
-      } catch (error) {
-        console.error("Failed to fetch contact data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
   
+  const officeLocations = [
+    {
+      name: "India Headquarters",
+      address: "154 Raj Chambers, Alibhai Premji Marg, Grant Road, Mumbai-400007",
+      phone: "+91 7208802565",
+      email: "ihrc777@gmail.com"
+    },
+    {
+      name: "US Headquarters",
+      address: "1126 Pitner Avenue, Evanston, IL 60202, United States",
+      phone: "+1224 255 0036",
+      email: "info@ihrc.in"
+    },
+    {
+      name: "Switzerland Headquarters",
+      address: "31 Rue Vollandes, 1207 Geneva, Switzerland",
+      phone: "+41779664839",
+      email: "info@ihrc-geneve.org"
+    }
+  ];
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you for your message! This is a demo form and does not send emails.');
+    alert('Thank you for your message. This is a demonstration form and does not send data.');
     (e.target as HTMLFormElement).reset();
   };
 
-
   return (
     <div className="animate-fade-in">
-      <PageHeader title="Contact Us" bgImage="https://wbhrc.netlify.app/assets/contact-bg-99c017d2.jpg" />
-      <section className="py-20">
+      <PageHeader
+        title="Contact Us"
+        breadcrumb="Get in Touch"
+        bgImage="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=2070&auto=format&fit=crop"
+      />
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Contact Form */}
-            <div className="bg-dark-bg-secondary p-8 rounded-lg shadow-lg">
-              <h2 className="text-2xl font-bold text-white mb-6">Send Us a Message</h2>
+            <div className="bg-gray-50 p-8 rounded-lg shadow-md border">
+              <h2 className="text-2xl font-bold text-brand-charcoal mb-6">Send Us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300">Full Name</label>
-                  <input type="text" id="name" name="name" required className="mt-1 block w-full px-3 py-2 bg-dark-bg border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-custom-red focus:border-custom-red text-white" />
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
+                  <input type="text" id="name" name="name" required className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red" />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300">Email Address</label>
-                  <input type="email" id="email" name="email" required className="mt-1 block w-full px-3 py-2 bg-dark-bg border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-custom-red focus:border-custom-red text-white" />
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
+                  <input type="email" id="email" name="email" required className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red" />
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300">Subject</label>
-                  <input type="text" id="subject" name="subject" required className="mt-1 block w-full px-3 py-2 bg-dark-bg border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-custom-red focus:border-custom-red text-white" />
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700">Subject</label>
+                  <input type="text" id="subject" name="subject" required className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red" />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300">Message</label>
-                  <textarea id="message" name="message" rows={5} required className="mt-1 block w-full px-3 py-2 bg-dark-bg border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-custom-red focus:border-custom-red text-white"></textarea>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+                  <textarea id="message" name="message" rows={5} required className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red"></textarea>
                 </div>
                 <div>
-                  <button type="submit" className="w-full bg-custom-red text-white font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-300">
-                    Send Message
+                  <button type="submit" className="w-full bg-brand-red text-white font-semibold py-3 px-6 rounded-md hover:bg-red-700 transition-all duration-300">
+                    Submit Message
                   </button>
                 </div>
               </form>
             </div>
 
-            {/* Contact Info & Map */}
-            <div>
-              <h2 className="text-2xl font-bold text-white mb-6">Get In Touch</h2>
-              {loading && <LoadingSpinner className="py-10" />}
-              {!loading && !contactInfo && <p>Could not load contact information.</p>}
-              {contactInfo && (
-                <>
-                  <ul className="space-y-4 text-gray-300 mb-8">
-                    <li className="flex items-start">
-                      <LocationIcon />
-                      <span>{contactInfo.address}</span>
-                    </li>
-                    <li className="flex items-start">
-                      <PhoneIcon />
-                      <a href={`tel:${contactInfo.phone}`} className="hover:text-custom-red">{contactInfo.phone}</a>
-                    </li>
-                    <li className="flex items-start">
-                      <EmailIcon />
-                      <a href={`mailto:${contactInfo.email}`} className="hover:text-custom-red">{contactInfo.email}</a>
-                    </li>
-                  </ul>
-                  {contactInfo.mapUrl && (
-                    <div className="w-full h-80 rounded-lg overflow-hidden shadow-lg">
-                      <iframe
-                        src={contactInfo.mapUrl}
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen={false}
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title="IHRCWB Location"
-                      ></iframe>
-                    </div>
-                  )}
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {headquarters.length > 0 && (
-        <section className="py-20 bg-dark-bg">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-white mb-10 text-center">Headquarters Information</h2>
-            <div className="grid md:grid-cols-3 gap-8 text-center">
-              {headquarters.map(hq => (
-                <div key={hq.location} className="bg-dark-bg-secondary p-6 rounded-lg shadow-md">
-                  <h3 className="text-xl font-bold text-custom-red mb-4">{hq.location}</h3>
-                  <div className="text-gray-400 text-sm">
-                    {hq.address.map((line, i) => <p key={i}>{line}</p>)}
-                    {hq.phone && <p className="mt-2"><b>Phone:</b> {hq.phone}</p>}
-                    {hq.email && <p className="mt-2"><b>Email:</b> {hq.email}</p>}
+            {/* Office Locations */}
+            <div className="space-y-8">
+              {officeLocations.map(office => (
+                <div key={office.name} className="bg-gray-50 p-6 rounded-lg shadow-md border">
+                  <h3 className="text-xl font-bold text-brand-charcoal mb-4 border-b pb-2">{office.name}</h3>
+                  <div className="space-y-3 text-gray-600 font-body">
+                    <p className="flex items-start"><span className="text-brand-red mr-3 mt-1">&#x1F4CD;</span>{office.address}</p>
+                    <p className="flex items-start"><span className="text-brand-red mr-3 mt-1">&#x1F4DE;</span><a href={`tel:${office.phone}`} className="hover:text-brand-red">{office.phone}</a></p>
+                    <p className="flex items-start"><span className="text-brand-red mr-3 mt-1">&#x2709;</span><a href={`mailto:${office.email}`} className="hover:text-brand-red">{office.email}</a></p>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
     </div>
   );
 };

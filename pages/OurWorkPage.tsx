@@ -1,114 +1,70 @@
-import React, { useState, useEffect } from 'react';
-import { getAboutPageData } from '../api/contentful';
-import LoadingSpinner from '../components/LoadingSpinner';
+import React from 'react';
+import PageHeader from '../components/PageHeader';
 
-// Reusable component for page headers
-const PageHeader: React.FC<{ title: string, bgImage: string }> = ({ title, bgImage }) => (
-  <header className="relative py-28 md:py-40 bg-cover bg-center text-center text-white" style={{ backgroundImage: `url('${bgImage}')` }}>
-    <div className="absolute inset-0 bg-black/60"></div>
-    <div className="relative z-10">
-      <h1 className="text-4xl md:text-5xl font-extrabold">{title}</h1>
-    </div>
-  </header>
-);
-
-const CheckIcon = () => (
-    <svg className="w-6 h-6 text-custom-red mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-    </svg>
-);
-
-interface AboutPageData {
-    header: { title: string; bgImage: string; };
-    whoWeAre: { title: string; paragraph1: string; paragraph2: string; imageUrl: string; };
-    vision: { title: string; text: string; };
-    mission: { title: string; text: string; };
-    objectives: { title: string; list: string[]; };
+interface WorkArea {
+  title: string;
+  description: string;
+  imageUrl: string;
 }
 
-const AboutPage: React.FC = () => {
-  const [pageData, setPageData] = useState<AboutPageData | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getAboutPageData();
-        setPageData(data);
-      } catch (error) {
-        console.error("Failed to fetch about page data:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
-
-
-  if (loading) {
-    return <LoadingSpinner />;
+const workAreas: WorkArea[] = [
+  { 
+    title: "Communications & Publications", 
+    description: "We believe that information is power. Our communications team works tirelessly to produce and disseminate high-quality legal materials, in-depth reports on human rights conditions, and educational content. These publications serve to inform the public, equip fellow activists, and provide policymakers with the evidence needed to enact meaningful change.",
+    imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop"
+  },
+  { 
+    title: "Coalition Building", 
+    description: "Human rights challenges are often global in nature and require a united front. We actively build and maintain strong partnerships with a network of local, national, and international organizations. By collaborating with other NGOs, legal bodies, and academic institutions, we amplify our collective voice and coordinate efforts for a greater, more sustainable impact.",
+    imageUrl: "https://images.unsplash.com/photo-1542744095-291d1f67b221?q=80&w=2070&auto=format&fit=crop"
+  },
+  { 
+    title: "Campaigns", 
+    description: "To address systemic human rights violations, we design and execute targeted advocacy campaigns. These campaigns range from filing public interest petitions in court to launching public awareness drives. We mobilize community support and engage with media to shine a spotlight on injustice and demand accountability from governments and corporations.",
+    imageUrl: "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1974&auto=format&fit=crop"
+  },
+  { 
+    title: "Counseling & Advocacy", 
+    description: "For individuals and communities facing human rights abuses, navigating the legal and political landscape can be daunting. We provide expert legal counseling and policy advocacy support. Our team guides victims through complex procedures, represents their interests in various forums, and advocates for policy changes that protect and promote human rights at a structural level.",
+    imageUrl: "https://images.unsplash.com/photo-1573497491208-6b1acb260507?q=80&w=2070&auto=format&fit=crop"
+  },
+  { 
+    title: "Education", 
+    description: "A society that understands its rights is better equipped to defend them. Our educational programs are central to our mission. We conduct workshops, seminars, and training sessions for students, law enforcement officials, and the general public to build a widespread culture of human rights awareness and empower the next generation of defenders.",
+    imageUrl: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop"
+  },
+  { 
+    title: "Legal Aid & Public Interest Litigation", 
+    description: "Access to justice is a fundamental right. We are committed to providing free, pro bono legal services to marginalized individuals and communities who cannot afford representation. Furthermore, we strategically engage in public interest litigation, taking on landmark cases that have the potential to set legal precedents and secure rights for millions.",
+    imageUrl: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=2070&auto=format&fit=crop"
   }
+];
 
-  if (!pageData) {
-    return <div className="text-center py-20">Failed to load content. Please try again later.</div>;
-  }
-
+const OurWorkPage: React.FC = () => {
   return (
     <div className="animate-fade-in">
-      <PageHeader title={pageData.header.title} bgImage={pageData.header.bgImage} />
-
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
-            <div className="lg:w-1/2">
-               <h2 className="text-3xl font-bold text-white mb-4 border-l-4 border-custom-red pl-4">{pageData.whoWeAre.title}</h2>
-                <p className="text-gray-300 leading-relaxed mb-4">
-                  {pageData.whoWeAre.paragraph1}
-                </p>
-                <p className="text-gray-300 leading-relaxed">
-                  {pageData.whoWeAre.paragraph2}
-                </p>
-            </div>
-            <div className="lg:w-1/2">
-              <img src={pageData.whoWeAre.imageUrl} alt="Our team" className="rounded-lg shadow-xl"/>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-dark-bg">
-        <div className="container mx-auto px-6 max-w-5xl">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-3xl font-bold text-white mb-4 border-l-4 border-custom-red pl-4">{pageData.vision.title}</h2>
-              <p className="text-gray-300 leading-relaxed">{pageData.vision.text}</p>
-            </div>
-            <div>
-              <h2 className="text-3xl font-bold text-white mb-4 border-l-4 border-custom-red pl-4">{pageData.mission.title}</h2>
-              <p className="text-gray-300 leading-relaxed">{pageData.mission.text}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-       <section id="objectives" className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white">{pageData.objectives.title}</h2>
-            <div className="w-24 h-1 bg-custom-red mx-auto mt-4"></div>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 max-w-4xl mx-auto">
-            {pageData.objectives.list.map((objective, index) => (
-              <div key={index} className="flex items-start">
-                <CheckIcon />
-                <p className="text-gray-300">{objective}</p>
+      <PageHeader
+        title="Our Core Areas of Work"
+        breadcrumb="What We Do"
+        bgImage="https://images.unsplash.com/photo-1516975080664-ed22c335ea9b?q=80&w=2070&auto=format&fit=crop"
+      />
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6 space-y-16">
+          {workAreas.map((area, index) => (
+            <div key={area.title} className={`flex flex-col lg:flex-row items-center gap-12 ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
+              <div className="lg:w-1/2">
+                <img src={area.imageUrl} alt={area.title} className="rounded-lg shadow-xl object-cover w-full h-80"/>
               </div>
-            ))}
-          </div>
+              <div className="lg:w-1/2">
+                <h2 className="text-3xl font-bold text-brand-charcoal mb-4 border-l-4 border-brand-red pl-4">{area.title}</h2>
+                <p className="text-gray-700 leading-relaxed font-body">{area.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>
   );
 };
 
-export default AboutPage;
+export default OurWorkPage;

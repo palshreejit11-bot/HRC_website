@@ -2,26 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="https://wbhrc.netlify.app/assets/logo-85d7c177.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IHRCWB | International Human Rights Council</title>
+    <title>IHRCWB | International Human Rights Council West Bengal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Georgia&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Lora:wght@400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              'custom-red': '#B91C1C',
-              'dark-charcoal': '#1F2937',
-              'dark-bg': '#0f172a',
-              'dark-bg-secondary': '#1e293b',
+              'brand-red': '#C0152F',
+              'brand-charcoal': '#1A202C',
+              'brand-gray': '#2D3748',
             },
             fontFamily: {
-              'montserrat': ['Montserrat', 'sans-serif'],
-              'georgia': ['Georgia', 'serif'],
+              'heading': ['Montserrat', 'sans-serif'],
+              'body': ['Lora', 'serif'],
             }
           }
         }
@@ -29,34 +28,35 @@
     </script>
     <style>
       body {
-        font-family: 'Georgia', serif;
-        background-color: #1F2937; /* dark-charcoal */
-        color: #d1d5db; /* text-gray-300 */
+        font-family: 'Lora', serif;
+        background-color: #F7FAFC; /* Light gray background */
+        color: #4A5568; /* Default text color */
       }
       h1, h2, h3, h4, h5, h6 {
         font-family: 'Montserrat', sans-serif;
-        color: #ffffff;
+        color: #1A202C; /* brand-charcoal */
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.8s ease-out forwards;
       }
       @keyframes fadeIn {
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
       }
-      .animate-fade-in {
-        animation: fadeIn 0.8s ease-out forwards;
-      }
     </style>
-  <script type="importmap">
+    <script type="importmap">
 {
   "imports": {
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
     "react/": "https://aistudiocdn.com/react@^19.1.1/",
-    "react": "https://aistudiocdn.com/react@^19.1.1",
-    "contentful": "https://jspm.dev/contentful"
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "contentful": "https://aistudiocdn.com/contentful@^11.7.17"
   }
 }
 </script>
-</head>
-  <body class="bg-dark-charcoal">
+  </head>
+  <body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>

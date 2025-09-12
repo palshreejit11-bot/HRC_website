@@ -1,102 +1,70 @@
-import React, { useState, useEffect } from 'react';
-import { getTeamMembers } from '../api/contentful';
-import LoadingSpinner from '../components/LoadingSpinner';
-
-// Reusable component for page headers
-const PageHeader: React.FC<{ title: string, bgImage: string }> = ({ title, bgImage }) => (
-  <header className="relative py-28 md:py-40 bg-cover bg-center text-center text-white" style={{ backgroundImage: `url('${bgImage}')` }}>
-    <div className="absolute inset-0 bg-black/60"></div>
-    <div className="relative z-10">
-      <h1 className="text-4xl md:text-5xl font-extrabold">{title}</h1>
-    </div>
-  </header>
-);
+import React from 'react';
+import PageHeader from '../components/PageHeader';
 
 interface Member {
   img: string;
   name: string;
   title: string;
-  bio?: string;
 }
 
-interface MemberGroups {
-  national: Member[];
-  westBengal: Member[];
-}
+const nationalBody: Member[] = [
+  { img: 'https://i.pravatar.cc/300?u=sumrta', name: 'Sumrta Shah', title: 'Founder Chairman' },
+  { img: 'https://i.pravatar.cc/300?u=asrutyesh', name: 'Dr Asrutyesh Biswas', title: 'National President' },
+  { img: 'https://i.pravatar.cc/300?u=aftab', name: 'Aftab Qadri', title: 'National President' },
+  { img: 'https://i.pravatar.cc/300?u=suresh', name: 'Suresh Pandey', title: 'Executive President' },
+];
 
-const MemberCard: React.FC<Member> = ({ img, name, title, bio }) => (
-  <div className="bg-dark-bg-secondary p-6 rounded-lg shadow-lg text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center">
+const westBengalBody: Member[] = [
+  { img: 'https://i.pravatar.cc/300?u=arun', name: 'Arun Kumar Mandal', title: 'Director' },
+  { img: 'https://i.pravatar.cc/300?u=jaydeb', name: 'Jaydeb Mondal', title: 'President' },
+  { img: 'https://i.pravatar.cc/300?u=debashish', name: 'Debashish Barua', title: 'Youth General Secretary' },
+  { img: 'https://i.pravatar.cc/300?u=sukumar', name: 'Sukumar Das', title: 'President CFO' },
+  { img: 'https://i.pravatar.cc/300?u=mainal', name: 'Mainal Haque Molla', title: 'Board Assistant' },
+];
+
+const MemberCard: React.FC<Member> = ({ img, name, title }) => (
+  <div className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center">
     <img 
         src={img} 
-        alt={name}
-        className="w-40 h-40 rounded-full object-cover mb-5 border-4 border-gray-700 shadow-md"
+        alt={`Photo of ${name}`}
+        className="w-32 h-32 rounded-full object-cover mb-4 border-4 border-gray-200"
     />
-    <h3 className="text-xl font-bold text-white">{name}</h3>
-    <p className="text-custom-red font-medium">{title}</p>
-    {bio && <p className="text-gray-400 text-sm mt-3 font-georgia leading-relaxed">{bio}</p>}
+    <h3 className="text-xl font-bold text-brand-charcoal">{name}</h3>
+    <p className="text-brand-red font-medium">{title}</p>
   </div>
 );
 
 const SectionTitle: React.FC<{ title: string }> = ({ title }) => (
   <div className="text-center my-12">
-    <h2 className="text-3xl md:text-4xl font-bold text-white">{title}</h2>
-    <div className="w-24 h-1 bg-custom-red mx-auto mt-4"></div>
+    <h2 className="text-3xl md:text-4xl font-bold text-brand-charcoal">{title}</h2>
+    <div className="w-24 h-1 bg-brand-red mx-auto mt-4"></div>
   </div>
 );
 
 const MembersPage: React.FC = () => {
-  const [members, setMembers] = useState<MemberGroups | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await getTeamMembers();
-        setMembers(data);
-      } catch (error) {
-        console.error("Failed to fetch members:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
-
   return (
-    <div className="animate-fade-in">
-      <PageHeader title="Our Members" bgImage="https://wbhrc.netlify.app/assets/member-bg-77885b54.jpg" />
+    <div className="animate-fade-in bg-gray-50">
+      <PageHeader 
+        title="Our Leadership Team" 
+        breadcrumb="Meet the Team" 
+        bgImage="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2232&auto=format&fit=crop"
+      />
 
-      <section className="py-20 bg-dark-bg">
+      <section className="py-20">
         <div className="container mx-auto px-6">
-          {loading ? (
-            <LoadingSpinner className="py-20" />
-          ) : members ? (
-            <>
-              {members.national.length > 0 && (
-                <>
-                    <SectionTitle title="National Body" />
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {members.national.map((member) => (
-                        <MemberCard key={member.name} {...member} />
-                        ))}
-                    </div>
-                </>
-              )}
+          <SectionTitle title="National Body" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {nationalBody.map((member) => (
+              <MemberCard key={member.name} {...member} />
+            ))}
+          </div>
 
-              {members.westBengal.length > 0 && (
-                <>
-                    <SectionTitle title="West Bengal State Post Holders" />
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {members.westBengal.map((member) => (
-                        <MemberCard key={member.name} {...member} />
-                        ))}
-                    </div>
-                </>
-              )}
-            </>
-          ) : (
-            <p className="text-center">Could not load members.</p>
-          )}
+          <SectionTitle title="West Bengal State Post Holders" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 max-w-6xl mx-auto">
+            {westBengalBody.map((member) => (
+              <MemberCard key={member.name} {...member} />
+            ))}
+          </div>
         </div>
       </section>
     </div>
