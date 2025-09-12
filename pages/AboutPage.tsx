@@ -34,7 +34,7 @@ const AboutPage: React.FC = () => {
                 </p>
             </div>
             <div className="lg:w-1/2">
-              <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop" alt="Our team discussing" className="rounded-lg shadow-xl"/>
+              <img src="https://res.cloudinary.com/dzrrjkubt/image/upload/v1757680667/A_powerful_black_and_rksver.png" alt="Our team discussing" className="rounded-lg shadow-xl"/>
             </div>
           </div>
         </div>
