@@ -31,7 +31,7 @@ const Header: React.FC = () => {
             H
           </div>
           <span className="text-xl font-bold text-brand-charcoal">
-            IHRC West Bengal
+            International Human Rights Council WB
           </span>
         </a>
         <nav className="hidden md:flex items-center space-x-8">
