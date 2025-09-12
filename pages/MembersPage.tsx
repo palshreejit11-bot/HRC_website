@@ -55,14 +55,14 @@ const leadershipSections: { [key: string]: Member[] } = {
     { name: 'Dr. Soumyajit Chakraborty ', title: 'Health Officer West Bengal State Board', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757677686/WhatsApp_Image_2025-09-11_at_15.47.29_1f987cc2_p2ayqn.jpg' },
   ],
   'West Bengal General Secretary': [
-    { name: 'Krishty Chetri', title: ' General Secretary West BengalSocial Protection Dept', img: placeholderImg },
-    { name: ' Narendra Kumar Gurung', title: '(Vice President) WB Social Protection Dept.', img: placeholderImg },
+    { name: 'Krishty Chetri', title: ' General Secretary West BengalSocial Protection Dept', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757682302/Explore_other_styles_dh5hfj.png' },
+    { name: ' Narendra Kumar Gurung', title: '(Vice President) WB Social Protection Dept.', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757682302/Explore_other_styles_dh5hfj.png' },
   ],
   'Director Of Department': [
-    { name: 'Arun Kumar Mondal ', title: '(Director Dept.)(WB)', img: placeholderImg },
+    { name: 'Arun Kumar Mondal ', title: '(Director Dept.)(WB)', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757682302/Explore_other_styles_dh5hfj.png' },
   ],
   'Youth Skill and Sports Department': [
-    { name: 'Jaydeb Mondal', title: 'President', img: placeholderImg },
+    { name: 'Jaydeb Mondal', title: 'President', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757682302/Explore_other_styles_dh5hfj.png' },
     { name: 'Debashish Barua', title: 'Youth General Secretary', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757678004/WhatsApp_Image_2025-09-11_at_15.47.23_621ce708_xrpyx8.jpg' },
   ],
 };
