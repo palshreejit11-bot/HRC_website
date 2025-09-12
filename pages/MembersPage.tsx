@@ -27,10 +27,10 @@ const allMembers: Member[] = [
   // Founder (1)
   { name: 'Sunny Shah', title: 'Founder', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757670186/WhatsApp_Image_2025-09-11_at_15.47.30_55a7d1f5_eo41ng.jpg' },
   // National President (4)
-  { name: 'Adv. A. K. Sharma', title: 'National President', img: placeholderImg },
-  { name: 'Member Name 2', title: 'National President', img: placeholderImg },
-  { name: 'Member Name 3', title: 'National President', img: placeholderImg },
-  { name: 'Member Name 4', title: 'National President', img: placeholderImg },
+  { name: 'Atif Ali Qadri', title: 'National President', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757672412/WhatsApp_Image_2025-09-11_at_15.47.15_be0726d0_ednhj4.jpg' },
+  { name: 'Dr Arunjyaotl Bhikkhu', title: 'National Vice President', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757672482/WhatsApp_Image_2025-09-11_at_15.47.20_92e810fe_gdar7g.jpg' },
+  { name: 'Suresh Pandey', title: 'Executive President National', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757672535/WhatsApp_Image_2025-09-11_at_15.47.22_f8404bcb_aqwkpe.jpg' },
+  { name: 'Gautam Vartia', title: 'National Member', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757672572/WhatsApp_Image_2025-09-11_at_15.47.21_754a9b9f_wbczag.jpg' },
   // West Bengal President (2)
   { name: 'Mr. Bapi Roy', title: 'West Bengal President', img: placeholderImg },
   { name: 'Member Name 6', title: 'West Bengal President', img: placeholderImg },
@@ -48,7 +48,7 @@ const allMembers: Member[] = [
   // West Bengal General Secretary (2)
   { name: 'Mr. Sanjay Bose', title: 'West Bengal General Secretary', img: placeholderImg },
   { name: 'Member Name 14', title: 'West Bengal General Secretary', img: placeholderImg },
-  // Director PF Department (1)
+  // Director of Department (1)
   { name: 'Ms. Rina Chowdhury', title: 'Director PF Department', img: placeholderImg },
   // Youth Skill and Sports Department (2)
   { name: 'Mr. Vikram Sen', title: 'Youth Skill and Sports Department', img: placeholderImg },
