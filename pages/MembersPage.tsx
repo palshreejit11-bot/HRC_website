@@ -9,7 +9,7 @@ interface Member {
 }
 
 const MemberCard: React.FC<{ member: Member }> = ({ member }) => (
-  <div className="text-center bg-white rounded-lg shadow-lg overflow-hidden group h-full flex flex-col">
+  <div className="text-center bg-white rounded-lg shadow-lg overflow-hidden group flex flex-col w-full sm:w-72">
     <div className="relative aspect-square">
       <img src={member.img} alt={member.name} className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105" />
     </div>
@@ -46,7 +46,7 @@ const leadershipSections: { [key: string]: Member[] } = {
     { name: 'Satabdi Bose Rudra', title: 'Women President (WB)(Civil Justice)', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757673544/WhatsApp_Image_2025-09-11_at_15.47.21_53b351cd_wljj9a.jpg' },
   ],
   'Civil Justice President': [
-    { name: 'Mr. Rohan Gupta', title: 'Civil Justice President', img: placeholderImg },
+    { name: 'Soumya Rudra', title: 'West Bengal President(Civil justice)', img: placeholderImg },
   ],
   'Youth President (Social)': [
     { name: 'Mr. Amit Kumar', title: 'Youth President (Social)', img: placeholderImg },
@@ -102,11 +102,7 @@ const MembersPage: React.FC = () => {
               <div key={title}>
                 <h2 className="text-3xl md:text-4xl font-bold text-brand-charcoal text-center mb-2">{title}</h2>
                 <div className="w-24 h-1 bg-brand-red mx-auto mt-2 mb-10"></div>
-                <div className={
-                    membersInSection.length === 1 
-                    ? "max-w-sm mx-auto" 
-                    : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
-                }>
+                <div className="flex flex-wrap gap-8 justify-center">
                   {membersInSection.map((member, index) => (
                     <MemberCard key={`${member.name}-${index}`} member={member} />
                   ))}
