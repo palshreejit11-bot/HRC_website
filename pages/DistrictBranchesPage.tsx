@@ -7,7 +7,7 @@ const DistrictBranchesPage: React.FC = () => {
       <PageHeader 
         title="District Branches" 
         breadcrumb="Our Reach" 
-        bgImage="https://images.unsplash.com/photo-1534294668821-28a3054f4256?q=80&w=1974&auto=format&fit=crop"
+        bgImage="https://images.unsplash.com/photo-1605291244303-345e56feb2ae?q=80&w=2070&auto=format&fit=crop"
       />
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6 text-center max-w-3xl">

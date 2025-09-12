@@ -17,7 +17,7 @@ const AboutPage: React.FC = () => {
       <PageHeader 
         title="About IHRC West Bengal" 
         breadcrumb="Who We Are" 
-        bgImage="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2070&auto=format&fit=crop"
+        bgImage="https://images.unsplash.com/photo-1529156069898-4242e49c34d8?q=80&w=2070&auto=format&fit=crop"
       />
 
       {/* History Section */}
@@ -34,7 +34,7 @@ const AboutPage: React.FC = () => {
                 </p>
             </div>
             <div className="lg:w-1/2">
-              <img src="https://images.unsplash.com/photo-1573496773905-f5b17e76b254?q=80&w=2070&auto=format&fit=crop" alt="Our team discussing" className="rounded-lg shadow-xl"/>
+              <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=2070&auto=format&fit=crop" alt="Our team discussing" className="rounded-lg shadow-xl"/>
             </div>
           </div>
         </div>

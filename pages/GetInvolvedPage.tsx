@@ -7,7 +7,7 @@ const GetInvolvedPage: React.FC = () => {
       <PageHeader
         title="Get Involved"
         breadcrumb="Support Our Mission"
-        bgImage="https://images.unsplash.com/photo-1618477388954-7852f32655ec?q=80&w=1964&auto=format&fit=crop"
+        bgImage="https://images.unsplash.com/photo-1601838110134-e1d5a718c5e2?q=80&w=1933&auto=format&fit=crop"
       />
 
       {/* Intro Section */}
