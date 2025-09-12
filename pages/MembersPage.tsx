@@ -129,6 +129,14 @@ const MembersPage: React.FC = () => {
 
           {/* Department Heads Section */}
           <div>
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-charcoal text-center mb-2">WestBengal president</h2>
+            <div className="w-24 h-1 bg-brand-red mx-auto mt-2 mb-10"></div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+              {departmentHeads.map((member) => (
+                <MemberCard key={member.name} member={member} />
+              ))}
+          {/* Department Heads Section */}
+          <div>
             <h2 className="text-3xl md:text-4xl font-bold text-brand-charcoal text-center mb-2">State Council & Department Heads</h2>
             <div className="w-24 h-1 bg-brand-red mx-auto mt-2 mb-10"></div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
