@@ -23,40 +23,51 @@ const MemberCard: React.FC<{ member: Member }> = ({ member }) => (
 
 const placeholderImg = 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1763784577/blank-profile-picture-973460_960_720_sgx9vu.webp';
 
-const allMembers: Member[] = [
-  // Founder (1)
-  { name: 'Sunny Shah', title: 'Founder', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757670186/WhatsApp_Image_2025-09-11_at_15.47.30_55a7d1f5_eo41ng.jpg' },
-  // National President (4)
-  { name: 'Atif Ali Qadri', title: 'National President', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757672412/WhatsApp_Image_2025-09-11_at_15.47.15_be0726d0_ednhj4.jpg' },
-  { name: 'Dr Arunjyaotl Bhikkhu', title: 'National Vice President', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757672482/WhatsApp_Image_2025-09-11_at_15.47.20_92e810fe_gdar7g.jpg' },
-  { name: 'Suresh Pandey', title: 'Executive President National', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757672535/WhatsApp_Image_2025-09-11_at_15.47.22_f8404bcb_aqwkpe.jpg' },
-  { name: 'Gautam Vartia', title: 'National Member', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757672572/WhatsApp_Image_2025-09-11_at_15.47.21_754a9b9f_wbczag.jpg' },
-  // West Bengal President (2)
-  { name: 'Mr. Bapi Roy', title: 'West Bengal President', img: placeholderImg },
-  { name: 'Member Name 6', title: 'West Bengal President', img: placeholderImg },
-  // State Youth President (1)
-  { name: 'Mr. Subrata Das', title: 'State Youth President', img: placeholderImg },
-  // Women President Empowerment (2)
-  { name: 'Ms. Priya Singh', title: 'Women President Empowerment', img: placeholderImg },
-  { name: 'Member Name 9', title: 'Women President Empowerment', img: placeholderImg },
-  // Civil Justice President (1)
-  { name: 'Mr. Rohan Gupta', title: 'Civil Justice President', img: placeholderImg },
-  // Youth President (Social) (1)
-  { name: 'Mr. Amit Kumar', title: 'Youth President (Social)', img: placeholderImg },
-  // Health Officer (1)
-  { name: 'Dr. Anjali Verma', title: 'Health Officer', img: placeholderImg },
-  // West Bengal General Secretary (2)
-  { name: 'Mr. Sanjay Bose', title: 'West Bengal General Secretary', img: placeholderImg },
-  { name: 'Member Name 14', title: 'West Bengal General Secretary', img: placeholderImg },
-  // Director of Department (1)
-  { name: 'Ms. Rina Chowdhury', title: 'Director PF Department', img: placeholderImg },
-  // Youth Skill and Sports Department (2)
-  { name: 'Mr. Vikram Sen', title: 'Youth Skill and Sports Department', img: placeholderImg },
-  { name: 'Member Name 17', title: 'Youth Skill and Sports Department', img: placeholderImg },
-  { name: 'Member Name 18', title: 'Youth Skill and Sports Department', img: placeholderImg },
-];
+// Restructured data to ensure correct grouping
+const leadershipSections: { [key: string]: Member[] } = {
+  'Founder': [
+    { name: 'Sunny Shah', title: 'Founder', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757670186/WhatsApp_Image_2025-09-11_at_15.47.30_55a7d1f5_eo41ng.jpg' },
+  ],
+  'National President': [
+    { name: 'Atif Ali Qadri', title: 'National President', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757672412/WhatsApp_Image_2025-09-11_at_15.47.15_be0726d0_ednhj4.jpg' },
+    { name: 'Dr Arunjyaotl Bhikkhu', title: 'National Vice President', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757672482/WhatsApp_Image_2025-09-11_at_15.47.20_92e810fe_gdar7g.jpg' },
+    { name: 'Suresh Pandey', title: 'Executive President National', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757672535/WhatsApp_Image_2025-09-11_at_15.47.22_f8404bcb_aqwkpe.jpg' },
+    { name: 'Gautam Vartia', title: 'National Member', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757672572/WhatsApp_Image_2025-09-11_at_15.47.21_754a9b9f_wbczag.jpg' },
+  ],
+  'West Bengal President': [
+    { name: 'Mr. Bapi Roy', title: 'West Bengal President', img: placeholderImg },
+    { name: 'Member Name 6', title: 'West Bengal President', img: placeholderImg },
+  ],
+  'State Youth President': [
+    { name: 'Mr. Subrata Das', title: 'State Youth President', img: placeholderImg },
+  ],
+  'Women President Empowerment': [
+    { name: 'Ms. Priya Singh', title: 'Women President Empowerment', img: placeholderImg },
+    { name: 'Member Name 9', title: 'Women President Empowerment', img: placeholderImg },
+  ],
+  'Civil Justice President': [
+    { name: 'Mr. Rohan Gupta', title: 'Civil Justice President', img: placeholderImg },
+  ],
+  'Youth President (Social)': [
+    { name: 'Mr. Amit Kumar', title: 'Youth President (Social)', img: placeholderImg },
+  ],
+  'Health Officer': [
+    { name: 'Dr. Anjali Verma', title: 'Health Officer', img: placeholderImg },
+  ],
+  'West Bengal General Secretary': [
+    { name: 'Mr. Sanjay Bose', title: 'West Bengal General Secretary', img: placeholderImg },
+    { name: 'Member Name 14', title: 'West Bengal General Secretary', img: placeholderImg },
+  ],
+  'Director PF Department': [
+    { name: 'Ms. Rina Chowdhury', title: 'Director PF Department', img: placeholderImg },
+  ],
+  'Youth Skill and Sports Department': [
+    { name: 'Mr. Vikram Sen', title: 'Youth Skill and Sports Department', img: placeholderImg },
+    { name: 'Member Name 17', title: 'Youth Skill and Sports Department', img: placeholderImg },
+  ],
+};
 
-const sectionTitles = [
+const sectionOrder = [
   'Founder',
   'National President',
   'West Bengal President',
@@ -70,6 +81,7 @@ const sectionTitles = [
   'Youth Skill and Sports Department',
 ];
 
+
 const MembersPage: React.FC = () => {
   return (
     <div className="animate-fade-in">
@@ -82,9 +94,9 @@ const MembersPage: React.FC = () => {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6 space-y-16">
 
-          {sectionTitles.map(title => {
-            const membersInSection = allMembers.filter(member => member.title === title);
-            if (membersInSection.length === 0) return null;
+          {sectionOrder.map(title => {
+            const membersInSection = leadershipSections[title];
+            if (!membersInSection || membersInSection.length === 0) return null;
 
             return (
               <div key={title}>
