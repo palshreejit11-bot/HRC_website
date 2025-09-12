@@ -46,24 +46,24 @@ const leadershipSections: { [key: string]: Member[] } = {
     { name: 'Satabdi Bose Rudra', title: 'Women President (WB)(Civil Justice)', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757673544/WhatsApp_Image_2025-09-11_at_15.47.21_53b351cd_wljj9a.jpg' },
   ],
   'Civil Justice President': [
-    { name: 'Soumya Rudra', title: 'West Bengal President(Civil justice)', img: placeholderImg },
+    { name: 'Soumya Rudra', title: 'West Bengal President(Civil justice)', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757677438/WhatsApp_Image_2025-09-11_at_15.47.21_bf72055c_r2xfit.jpg' },
   ],
   'Youth President (Social)': [
-    { name: 'Mr. Amit Kumar', title: 'Youth President (Social)', img: placeholderImg },
+    { name: 'Sanjay Chamaria', title: 'West Bengal State Board social Justice & Empowerment', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757677589/WhatsApp_Image_2025-09-11_at_15.47.22_d8814c1f_qbgdxi.jpg' },
   ],
   'Health Officer': [
-    { name: 'Dr. Anjali Verma', title: 'Health Officer', img: placeholderImg },
+    { name: 'Dr. Soumyajit Chakraborty ', title: 'Health Officer West Bengal State Board', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757677686/WhatsApp_Image_2025-09-11_at_15.47.29_1f987cc2_p2ayqn.jpg' },
   ],
   'West Bengal General Secretary': [
-    { name: 'Mr. Sanjay Bose', title: 'West Bengal General Secretary', img: placeholderImg },
-    { name: 'Member Name 14', title: 'West Bengal General Secretary', img: placeholderImg },
+    { name: 'Krishly Chetri', title: ' General Secretary West BengalSocial Protection Dept', img: placeholderImg },
+    { name: ' Narendra Kumar Gurung', title: '(Vice President) WB Social Protection Dept.', img: placeholderImg },
   ],
-  'Director PF Department': [
-    { name: 'Ms. Rina Chowdhury', title: 'Director PF Department', img: placeholderImg },
+  'Director Of Department': [
+    { name: 'Arun Kumar Mandal ', title: '(Director Dept.(WB)', img: placeholderImg },
   ],
   'Youth Skill and Sports Department': [
-    { name: 'Mr. Vikram Sen', title: 'Youth Skill and Sports Department', img: placeholderImg },
-    { name: 'Member Name 17', title: 'Youth Skill and Sports Department', img: placeholderImg },
+    { name: 'Jaydeb Monda', title: 'President', img: placeholderImg },
+    { name: 'Debashish Barua', title: 'Youth General Secretary', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757678004/WhatsApp_Image_2025-09-11_at_15.47.23_621ce708_xrpyx8.jpg' },
   ],
 };
 
