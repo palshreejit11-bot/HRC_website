@@ -91,10 +91,9 @@ const leadership = [
 ];
 
 const MembersPage: React.FC = () => {
-
   const founder = leadership[0];
-  const topLeaders = leadership.slice(1, 3);
-  const departmentHeads = leadership.slice(3);
+  const presidents = leadership.slice(1, 3);
+  const councilAndHeads = leadership.slice(3);
 
   return (
     <div className="animate-fade-in">
@@ -116,36 +115,27 @@ const MembersPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Top Leadership Section */}
+          {/* Presidents Section */}
           <div>
-             <h2 className="text-3xl md:text-4xl font-bold text-brand-charcoal text-center mb-2">Presidents</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-charcoal text-center mb-2">Presidents</h2>
             <div className="w-24 h-1 bg-brand-red mx-auto mt-2 mb-10"></div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              {topLeaders.map((member) => (
+              {presidents.map((member) => (
                 <MemberCard key={member.name} member={member} />
               ))}
             </div>
           </div>
 
-          {/* Department Heads Section */}
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-charcoal text-center mb-2">WestBengal president</h2>
-            <div className="w-24 h-1 bg-brand-red mx-auto mt-2 mb-10"></div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {departmentHeads.map((member) => (
-                <MemberCard key={member.name} member={member} />
-              ))}
           {/* Department Heads Section */}
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-brand-charcoal text-center mb-2">State Council & Department Heads</h2>
             <div className="w-24 h-1 bg-brand-red mx-auto mt-2 mb-10"></div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {departmentHeads.map((member) => (
+              {councilAndHeads.map((member) => (
                 <MemberCard key={member.name} member={member} />
               ))}
             </div>
           </div>
-
         </div>
       </section>
     </div>
