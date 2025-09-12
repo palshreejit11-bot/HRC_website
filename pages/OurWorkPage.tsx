@@ -11,7 +11,7 @@ const workAreas: WorkArea[] = [
   { 
     title: "Communications & Publications", 
     description: "We believe that information is power. Our communications team works tirelessly to produce and disseminate high-quality legal materials, in-depth reports on human rights conditions, and educational content. These publications serve to inform the public, equip fellow activists, and provide policymakers with the evidence needed to enact meaningful change.",
-    imageUrl: "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?q=80&w=2070&auto=format&fit=crop"
+    imageUrl: "https://res.cloudinary.com/dzrrjkubt/image/upload/v1757679889/WhatsApp_Image_2025-09-12_at_15.04.51_d2fce488_lfofnf.jpg"
   },
   { 
     title: "Coalition Building", 
@@ -21,22 +21,22 @@ const workAreas: WorkArea[] = [
   { 
     title: "Campaigns", 
     description: "To address systemic human rights violations, we design and execute targeted advocacy campaigns. These campaigns range from filing public interest petitions in court to launching public awareness drives. We mobilize community support and engage with media to shine a spotlight on injustice and demand accountability from governments and corporations.",
-    imageUrl: "https://images.unsplash.com/photo-1617529497471-9218633199c0?q=80&w=2070&auto=format&fit=crop"
+    imageUrl: "https://res.cloudinary.com/dzrrjkubt/image/upload/v1757679881/WhatsApp_Image_2025-09-12_at_15.04.47_825bf9fe_huheny.jpg"
   },
   { 
     title: "Counseling & Advocacy", 
     description: "For individuals and communities facing human rights abuses, navigating the legal and political landscape can be daunting. We provide expert legal counseling and policy advocacy support. Our team guides victims through complex procedures, represents their interests in various forums, and advocates for policy changes that protect and promote human rights at a structural level.",
-    imageUrl: "https://images.unsplash.com/photo-1600267175161-c90b6b60c56c?q=80&w=2070&auto=format&fit=crop"
+    imageUrl: "https://res.cloudinary.com/dzrrjkubt/image/upload/v1757614328/samples/imagecon-group.jpg"
   },
   { 
     title: "Education", 
     description: "A society that understands its rights is better equipped to defend them. Our educational programs are central to our mission. We conduct workshops, seminars, and training sessions for students, law enforcement officials, and the general public to build a widespread culture of human rights awareness and empower the next generation of defenders.",
-    imageUrl: "https://images.unsplash.com/photo-1594411995221-9b3803272c29?q=80&w=2072&auto=format&fit=crop"
+    imageUrl: "https://res.cloudinary.com/dzrrjkubt/image/upload/v1757679882/WhatsApp_Image_2025-09-12_at_15.04.47_c8a4181f_rzqstr.jpg"
   },
   { 
     title: "Legal Aid & Public Interest Litigation", 
     description: "Access to justice is a fundamental right. We are committed to providing free, pro bono legal services to marginalized individuals and communities who cannot afford representation. Furthermore, we strategically engage in public interest litigation, taking on landmark cases that have the potential to set legal precedents and secure rights for millions.",
-    imageUrl: "https://images.unsplash.com/photo-1589994965851-a8f402c53a99?q=80&w=2070&auto=format&fit=crop"
+    imageUrl: "https://res.cloudinary.com/dzrrjkubt/image/upload/v1757679882/WhatsApp_Image_2025-09-12_at_15.04.47_d2a3c14d_r97yjq.jpg"
   }
 ];
 
