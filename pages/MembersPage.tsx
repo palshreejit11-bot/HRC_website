@@ -6,7 +6,7 @@ interface Member {
   name: string;
   title: string;
 }
-const Founder: Member[] = [
+const founder: Member[] = [
   { img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757621024/WhatsApp_Image_2025-09-11_at_15.47.20_b84a137a_rinofu_05c952.jpg', name: 'Sunmy Shah', title: 'Founder Chairman' },
 
 ];
