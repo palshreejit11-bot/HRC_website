@@ -88,7 +88,7 @@ const MembersPage: React.FC = () => {
       <PageHeader
         title="Our Team"
         breadcrumb="Meet the People Behind Our Mission"
-        bgImage="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
+        bgImage="https://res.cloudinary.com/dzrrjkubt/image/upload/v1757679082/WhatsApp_Image_2025-09-12_at_15.04.51_481bcfb7_yuztyr.jpg"
       />
       
       <section className="py-20 bg-gray-50">

@@ -16,7 +16,10 @@ const Header: React.FC = () => {
     { href: '#/', text: 'Home' },
     { href: '#/about', text: 'About' },
     { href: '#/members', text: 'Members' },
+    { href: '#/district-branches', text: 'Branches' },
     { href: '#/our-work', text: 'Our Work' },
+    { href: '#/events', text: 'Events' },
+    { href: '#/gallery', text: 'Gallery' },
     { href: '#/get-involved', text: 'Get Involved' },
     { href: '#/contact', text: 'Contact' },
   ];
@@ -34,7 +37,7 @@ const Header: React.FC = () => {
             International Human Rights Council WB
           </span>
         </a>
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-6">
           {navLinks.map((link) => (
             <a
               key={link.href}

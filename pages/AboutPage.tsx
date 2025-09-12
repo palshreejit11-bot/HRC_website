@@ -17,7 +17,7 @@ const AboutPage: React.FC = () => {
       <PageHeader 
         title="About IHRC West Bengal" 
         breadcrumb="Who We Are" 
-        bgImage="https://images.unsplash.com/photo-1529156069898-4242e49c34d8?q=80&w=2070&auto=format&fit=crop"
+        bgImage="https://res.cloudinary.com/dzrrjkubt/image/upload/v1757678960/WhatsApp_Image_2025-09-12_at_15.04.51_56c1b6b2_bbgqyl.jpg"
       />
 
       {/* History Section */}
