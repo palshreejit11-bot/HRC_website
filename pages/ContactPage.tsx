@@ -11,10 +11,10 @@ const ContactPage: React.FC = () => {
       email: "ihrc777@gmail.com"
     },
     {
-      name: "US Headquarters",
-      address: "1126 Pitner Avenue, Evanston, IL 60202, United States",
-      phone: "+1224 255 0036",
-      email: "info@ihrc.in"
+      name: "Our Headquarters",
+      address: "14/2 OLD CHINA BAZAR STREET BHIKANCHAND MARKET 1ST FLOOR NEAR TEA BOARD",
+      phone: "+91 8777016200",
+      email: "ihrcwb8@gmail.com"
     },
     {
       name: "Switzerland Headquarters",

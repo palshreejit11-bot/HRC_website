@@ -8,7 +8,7 @@ interface Member {
 }
 
 const nationalBody: Member[] = [
-  { img: 'https://i.pravatar.cc/300?u=sumrta', name: 'Sumrta Shah', title: 'Founder Chairman' },
+  { img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757621024/WhatsApp_Image_2025-09-11_at_15.47.20_b84a137a_rinofu_05c952.jpg', name: 'Anurag Prem', title: 'Founder Chairman' },
   { img: 'https://i.pravatar.cc/300?u=asrutyesh', name: 'Dr Asrutyesh Biswas', title: 'National President' },
   { img: 'https://i.pravatar.cc/300?u=aftab', name: 'Aftab Qadri', title: 'National President' },
   { img: 'https://i.pravatar.cc/300?u=suresh', name: 'Suresh Pandey', title: 'Executive President' },
