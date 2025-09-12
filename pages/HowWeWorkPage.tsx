@@ -50,32 +50,27 @@ const HowWeWorkPage: React.FC = () => {
   }
 
   return (
-    <div className="animate-fade-in bg-slate-50">
+    <div className="animate-fade-in">
         <PageHeader title={pageData.header.title} bgImage={pageData.header.bgImage} />
         
         {pageData.slideshowImages.length > 0 && (
-            <section className="py-20 bg-white">
+            <section className="py-20">
                 <div className="container mx-auto px-6 max-w-5xl">
-                    <h2 className="text-3xl md:text-4xl font-bold text-slate-800 text-center mb-4">Our Work in Action</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-4">Our Work in Action</h2>
                     <div className="w-24 h-1 bg-custom-red mx-auto mb-10"></div>
                     <Slideshow images={pageData.slideshowImages} />
-                    <div className="text-center mt-10">
-                        <a href="#/gallery" className="bg-custom-red text-white font-semibold py-3 px-8 rounded-md hover:bg-opacity-90 transition-all duration-300">
-                            View Full Gallery
-                        </a>
-                    </div>
                 </div>
             </section>
         )}
 
-        <section className="py-20">
+        <section className="py-20 bg-dark-bg">
             <div className="container mx-auto px-6 max-w-4xl space-y-12">
                 {pageData.sections.map((section, index) => (
-                    <div key={index} className="bg-white p-8 rounded-lg shadow-lg">
-                        <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-4 border-l-4 border-custom-red pl-4">
+                    <div key={index} className="bg-dark-bg-secondary p-8 rounded-lg shadow-lg">
+                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 border-l-4 border-custom-red pl-4">
                             {section.title}
                         </h2>
-                        <p className="text-slate-600 leading-relaxed">
+                        <p className="text-gray-300 leading-relaxed">
                             {section.content}
                         </p>
                     </div>

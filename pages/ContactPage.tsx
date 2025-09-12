@@ -57,28 +57,28 @@ const ContactPage: React.FC = () => {
   return (
     <div className="animate-fade-in">
       <PageHeader title="Contact Us" bgImage="https://wbhrc.netlify.app/assets/contact-bg-99c017d2.jpg" />
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Contact Form */}
-            <div className="bg-slate-50 p-8 rounded-lg shadow-lg">
-              <h2 className="text-2xl font-bold text-slate-800 mb-6">Send Us a Message</h2>
+            <div className="bg-dark-bg-secondary p-8 rounded-lg shadow-lg">
+              <h2 className="text-2xl font-bold text-white mb-6">Send Us a Message</h2>
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-slate-600">Full Name</label>
-                  <input type="text" id="name" name="name" required className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-red focus:border-custom-red" />
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-300">Full Name</label>
+                  <input type="text" id="name" name="name" required className="mt-1 block w-full px-3 py-2 bg-dark-bg border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-custom-red focus:border-custom-red text-white" />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-slate-600">Email Address</label>
-                  <input type="email" id="email" name="email" required className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-red focus:border-custom-red" />
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-300">Email Address</label>
+                  <input type="email" id="email" name="email" required className="mt-1 block w-full px-3 py-2 bg-dark-bg border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-custom-red focus:border-custom-red text-white" />
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-slate-600">Subject</label>
-                  <input type="text" id="subject" name="subject" required className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-red focus:border-custom-red" />
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300">Subject</label>
+                  <input type="text" id="subject" name="subject" required className="mt-1 block w-full px-3 py-2 bg-dark-bg border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-custom-red focus:border-custom-red text-white" />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-slate-600">Message</label>
-                  <textarea id="message" name="message" rows={5} required className="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-red focus:border-custom-red"></textarea>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300">Message</label>
+                  <textarea id="message" name="message" rows={5} required className="mt-1 block w-full px-3 py-2 bg-dark-bg border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-custom-red focus:border-custom-red text-white"></textarea>
                 </div>
                 <div>
                   <button type="submit" className="w-full bg-custom-red text-white font-semibold py-3 px-6 rounded-md hover:bg-opacity-90 transition-all duration-300">
@@ -90,12 +90,12 @@ const ContactPage: React.FC = () => {
 
             {/* Contact Info & Map */}
             <div>
-              <h2 className="text-2xl font-bold text-slate-800 mb-6">Get In Touch</h2>
+              <h2 className="text-2xl font-bold text-white mb-6">Get In Touch</h2>
               {loading && <LoadingSpinner className="py-10" />}
               {!loading && !contactInfo && <p>Could not load contact information.</p>}
               {contactInfo && (
                 <>
-                  <ul className="space-y-4 text-slate-600 mb-8">
+                  <ul className="space-y-4 text-gray-300 mb-8">
                     <li className="flex items-start">
                       <LocationIcon />
                       <span>{contactInfo.address}</span>
@@ -131,14 +131,14 @@ const ContactPage: React.FC = () => {
       </section>
 
       {headquarters.length > 0 && (
-        <section className="py-20 bg-slate-50">
+        <section className="py-20 bg-dark-bg">
           <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold text-slate-800 mb-10 text-center">Headquarters Information</h2>
+            <h2 className="text-3xl font-bold text-white mb-10 text-center">Headquarters Information</h2>
             <div className="grid md:grid-cols-3 gap-8 text-center">
               {headquarters.map(hq => (
-                <div key={hq.location} className="bg-white p-6 rounded-lg shadow-md">
+                <div key={hq.location} className="bg-dark-bg-secondary p-6 rounded-lg shadow-md">
                   <h3 className="text-xl font-bold text-custom-red mb-4">{hq.location}</h3>
-                  <div className="text-slate-600 text-sm">
+                  <div className="text-gray-400 text-sm">
                     {hq.address.map((line, i) => <p key={i}>{line}</p>)}
                     {hq.phone && <p className="mt-2"><b>Phone:</b> {hq.phone}</p>}
                     {hq.email && <p className="mt-2"><b>Email:</b> {hq.email}</p>}

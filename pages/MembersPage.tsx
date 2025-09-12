@@ -24,20 +24,20 @@ interface MemberGroups {
 }
 
 const MemberCard: React.FC<Member> = ({ img, name, title }) => (
-  <div className="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center">
+  <div className="bg-dark-bg-secondary p-6 rounded-lg shadow-lg text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col items-center">
     <img 
         src={img} 
         alt={name}
-        className="w-40 h-40 rounded-full object-cover mb-5 border-4 border-white shadow-md"
+        className="w-40 h-40 rounded-full object-cover mb-5 border-4 border-gray-700 shadow-md"
     />
-    <h3 className="text-xl font-bold text-slate-800">{name}</h3>
+    <h3 className="text-xl font-bold text-white">{name}</h3>
     <p className="text-custom-red font-medium">{title}</p>
   </div>
 );
 
 const SectionTitle: React.FC<{ title: string }> = ({ title }) => (
   <div className="text-center my-12">
-    <h2 className="text-3xl md:text-4xl font-bold text-slate-800">{title}</h2>
+    <h2 className="text-3xl md:text-4xl font-bold text-white">{title}</h2>
     <div className="w-24 h-1 bg-custom-red mx-auto mt-4"></div>
   </div>
 );
@@ -64,7 +64,7 @@ const MembersPage: React.FC = () => {
     <div className="animate-fade-in">
       <PageHeader title="Our Members" bgImage="https://wbhrc.netlify.app/assets/member-bg-77885b54.jpg" />
 
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-dark-bg">
         <div className="container mx-auto px-6">
           {loading ? (
             <LoadingSpinner className="py-20" />

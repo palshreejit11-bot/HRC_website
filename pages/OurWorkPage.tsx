@@ -54,18 +54,18 @@ const AboutPage: React.FC = () => {
   }
 
   return (
-    <div className="animate-fade-in bg-white">
+    <div className="animate-fade-in">
       <PageHeader title={pageData.header.title} bgImage={pageData.header.bgImage} />
 
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">
-               <h2 className="text-3xl font-bold text-slate-800 mb-4 border-l-4 border-custom-red pl-4">{pageData.whoWeAre.title}</h2>
-                <p className="text-slate-600 leading-relaxed mb-4">
+               <h2 className="text-3xl font-bold text-white mb-4 border-l-4 border-custom-red pl-4">{pageData.whoWeAre.title}</h2>
+                <p className="text-gray-300 leading-relaxed mb-4">
                   {pageData.whoWeAre.paragraph1}
                 </p>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   {pageData.whoWeAre.paragraph2}
                 </p>
             </div>
@@ -76,32 +76,32 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-dark-bg">
         <div className="container mx-auto px-6 max-w-5xl">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold text-slate-800 mb-4 border-l-4 border-custom-red pl-4">{pageData.vision.title}</h2>
-              <p className="text-slate-600 leading-relaxed">{pageData.vision.text}</p>
+              <h2 className="text-3xl font-bold text-white mb-4 border-l-4 border-custom-red pl-4">{pageData.vision.title}</h2>
+              <p className="text-gray-300 leading-relaxed">{pageData.vision.text}</p>
             </div>
             <div>
-              <h2 className="text-3xl font-bold text-slate-800 mb-4 border-l-4 border-custom-red pl-4">{pageData.mission.title}</h2>
-              <p className="text-slate-600 leading-relaxed">{pageData.mission.text}</p>
+              <h2 className="text-3xl font-bold text-white mb-4 border-l-4 border-custom-red pl-4">{pageData.mission.title}</h2>
+              <p className="text-gray-300 leading-relaxed">{pageData.mission.text}</p>
             </div>
           </div>
         </div>
       </section>
       
-       <section id="objectives" className="py-20 bg-white">
+       <section id="objectives" className="py-20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-800">{pageData.objectives.title}</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white">{pageData.objectives.title}</h2>
             <div className="w-24 h-1 bg-custom-red mx-auto mt-4"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 max-w-4xl mx-auto">
             {pageData.objectives.list.map((objective, index) => (
               <div key={index} className="flex items-start">
                 <CheckIcon />
-                <p className="text-slate-600">{objective}</p>
+                <p className="text-gray-300">{objective}</p>
               </div>
             ))}
           </div>
