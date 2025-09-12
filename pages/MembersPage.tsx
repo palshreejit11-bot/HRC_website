@@ -21,7 +21,7 @@ const MemberCard: React.FC<{ member: Member }> = ({ member }) => (
   </div>
 );
 
-const leadership = [
+const leadership: Member[] = [
   {
     name: 'Sunny Shah',
     title: 'Founder',
@@ -88,12 +88,18 @@ const leadership = [
     img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1763784577/blank-profile-picture-973460_960_720_sgx9vu.webp',
     bio: '',
   },
+  {
+    name: 'Ms. Neha Sharma',
+    title: 'Media & Communications Head',
+    img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1763784577/blank-profile-picture-973460_960_720_sgx9vu.webp',
+    bio: '',
+  },
 ];
 
 const MembersPage: React.FC = () => {
   const founder = leadership[0];
   const presidents = leadership.slice(1, 3);
-  const councilAndHeads = leadership.slice(3);
+  const departmentHeads = leadership.slice(3);
 
   return (
     <div className="animate-fade-in">
@@ -128,10 +134,10 @@ const MembersPage: React.FC = () => {
 
           {/* Department Heads Section */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-charcoal text-center mb-2">State Council & Department Heads</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-brand-charcoal text-center mb-2">Department Heads</h2>
             <div className="w-24 h-1 bg-brand-red mx-auto mt-2 mb-10"></div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {councilAndHeads.map((member) => (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {departmentHeads.map((member) => (
                 <MemberCard key={member.name} member={member} />
               ))}
             </div>
