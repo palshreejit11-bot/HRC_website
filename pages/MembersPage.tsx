@@ -23,9 +23,9 @@ const MemberCard: React.FC<{ member: Member }> = ({ member }) => (
 
 const leadership = [
   {
-    name: 'Dr. Nem Singh Premi',
+    name: 'Sunny Shah',
     title: 'Founder',
-    img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1763784577/blank-profile-picture-973460_960_720_sgx9vu.webp',
+    img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757670186/WhatsApp_Image_2025-09-11_at_15.47.30_55a7d1f5_eo41ng.jpg',
     bio: 'Visionary founder of the International Human Rights Council.',
   },
   {
