@@ -35,15 +35,15 @@ const leadershipSections: { [key: string]: Member[] } = {
     { name: 'Gautam Vartia', title: 'National Member', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757672572/WhatsApp_Image_2025-09-11_at_15.47.21_754a9b9f_wbczag.jpg' },
   ],
   'West Bengal President': [
-    { name: 'Mr. Bapi Roy', title: 'West Bengal President', img: placeholderImg },
-    { name: 'Member Name 6', title: 'West Bengal President', img: placeholderImg },
+    { name: 'Sukumar Das', title: 'President (WB) (SEB)', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757673084/WhatsApp_Image_2025-09-11_at_15.47.30_aa6c61eb_mvgfas.jpg' },
+    { name: 'Moinul Haque Molla', title: 'West Bengal President(SJE)', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757673241/WhatsApp_Image_2025-09-11_at_15.47.31_f2065413_pbo2yn.jpg' },
   ],
   'State Youth President': [
-    { name: 'Mr. Subrata Das', title: 'State Youth President', img: placeholderImg },
+    { name: 'Anurag Panja', title: 'State Youth President(WB)(Civil Justice)', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757673351/WhatsApp_Image_2025-09-11_at_15.47.29_befe8219_grbtvm.jpg' },
   ],
   'Women President Empowerment': [
-    { name: 'Ms. Priya Singh', title: 'Women President Empowerment', img: placeholderImg },
-    { name: 'Member Name 9', title: 'Women President Empowerment', img: placeholderImg },
+    { name: 'Dolam Mitra', title: 'Women President Empowerment(WB)', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757621024/WhatsApp_Image_2025-09-11_at_15.47.20_b84a137a_rinofu_05c952.jpg' },
+    { name: 'Satabdi Bose Rudra', title: 'Women President (WB)(Civil Justice)', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757673544/WhatsApp_Image_2025-09-11_at_15.47.21_53b351cd_wljj9a.jpg' },
   ],
   'Civil Justice President': [
     { name: 'Mr. Rohan Gupta', title: 'Civil Justice President', img: placeholderImg },
