@@ -14,7 +14,7 @@ const HomePage: React.FC = () => {
   return (
     <div className="animate-fade-in">
       {/* Hero Section */}
-      <section className="relative h-[80vh] min-h-[500px] bg-cover bg-center text-white flex items-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1596122441416-3023425b4f3b?q=80&w=2070&auto=format&fit=crop')" }}>
+      <section className="relative h-[80vh] min-h-[500px] bg-cover bg-center text-white flex items-center" style={{ backgroundImage: "url('https://res.cloudinary.com/dzrrjkubt/image/upload/v1757679881/WhatsApp_Image_2025-09-12_at_15.04.46_1daa6fed_r0luzs.jpg')" }}>
         <div className="absolute inset-0 bg-brand-charcoal opacity-50"></div>
         <div className="relative z-10 container mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">International Human Rights Council</h1>

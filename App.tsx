@@ -4,7 +4,6 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import MembersPage from './pages/MembersPage';
-import DistrictBranchesPage from './pages/DistrictBranchesPage';
 import OurWorkPage from './pages/OurWorkPage';
 import EventsPage from './pages/EventsPage';
 import GalleryPage from './pages/GalleryPage';
@@ -33,10 +32,6 @@ const App: React.FC = () => {
         case '#/members':
           meta.title = 'Our Team | IHRCWB';
           meta.description = 'Meet the dedicated team of activists, lawyers, and professionals at the International Human Rights Council West Bengal, leading the fight for human rights.';
-          break;
-        case '#/district-branches':
-          meta.title = 'District Branches | IHRCWB';
-          meta.description = 'Discover the district-level presence of the International Human Rights Council in West Bengal. Find local representatives and contact information.';
           break;
         case '#/our-work':
           meta.title = 'Our Work | IHRCWB';
@@ -101,8 +96,6 @@ const App: React.FC = () => {
         return <AboutPage />;
       case '#/members':
         return <MembersPage />;
-      case '#/district-branches':
-        return <DistrictBranchesPage />;
       case '#/our-work':
         return <OurWorkPage />;
       case '#/events':

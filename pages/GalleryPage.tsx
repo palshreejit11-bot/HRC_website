@@ -49,7 +49,7 @@ const GalleryPage: React.FC = () => {
 
   return (
     <div className="animate-fade-in">
-        <PageHeader title="Our Gallery" bgImage="https://images.unsplash.com/photo-1517036339023-1d5b5136a687?q=80&w=2070&auto=format&fit=crop" />
+        <PageHeader title="Our Gallery" bgImage="https://res.cloudinary.com/dzrrjkubt/image/upload/v1757679882/WhatsApp_Image_2025-09-12_at_15.04.49_89966594_nn1qlq.jpg" />
         <section className="py-20 bg-slate-50">
             <div className="container mx-auto px-6">
                 {loading ? (
