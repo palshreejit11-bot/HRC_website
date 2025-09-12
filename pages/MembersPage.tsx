@@ -30,7 +30,7 @@ const leadershipSections: { [key: string]: Member[] } = {
   ],
   'National President': [
     { name: 'Atif Ali Qadri', title: 'National President', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757672412/WhatsApp_Image_2025-09-11_at_15.47.15_be0726d0_ednhj4.jpg' },
-    { name: 'Dr Arunjyaotl Bhikkhu', title: 'National Vice President', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757672482/WhatsApp_Image_2025-09-11_at_15.47.20_92e810fe_gdar7g.jpg' },
+    { name: 'Dr Arunjyoti Bhikkhu', title: 'National Vice President', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757672482/WhatsApp_Image_2025-09-11_at_15.47.20_92e810fe_gdar7g.jpg' },
     { name: 'Suresh Pandey', title: 'Executive President National', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757672535/WhatsApp_Image_2025-09-11_at_15.47.22_f8404bcb_aqwkpe.jpg' },
     { name: 'Gautam Vartia', title: 'National Member', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757672572/WhatsApp_Image_2025-09-11_at_15.47.21_754a9b9f_wbczag.jpg' },
   ],
@@ -42,7 +42,7 @@ const leadershipSections: { [key: string]: Member[] } = {
     { name: 'Anurag Panja', title: 'State Youth President(WB)(Civil Justice)', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757673351/WhatsApp_Image_2025-09-11_at_15.47.29_befe8219_grbtvm.jpg' },
   ],
   'Women President Empowerment': [
-    { name: 'Dolam Mitra', title: 'Women President Empowerment(WB)', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757621024/WhatsApp_Image_2025-09-11_at_15.47.20_b84a137a_rinofu_05c952.jpg' },
+    { name: 'Dolan Mitra', title: 'Women President Empowerment(WB)', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757621024/WhatsApp_Image_2025-09-11_at_15.47.20_b84a137a_rinofu_05c952.jpg' },
     { name: 'Satabdi Bose Rudra', title: 'Women President (WB)(Civil Justice)', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757673544/WhatsApp_Image_2025-09-11_at_15.47.21_53b351cd_wljj9a.jpg' },
   ],
   'Civil Justice President': [
@@ -55,14 +55,14 @@ const leadershipSections: { [key: string]: Member[] } = {
     { name: 'Dr. Soumyajit Chakraborty ', title: 'Health Officer West Bengal State Board', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757677686/WhatsApp_Image_2025-09-11_at_15.47.29_1f987cc2_p2ayqn.jpg' },
   ],
   'West Bengal General Secretary': [
-    { name: 'Krishly Chetri', title: ' General Secretary West BengalSocial Protection Dept', img: placeholderImg },
+    { name: 'Krishty Chetri', title: ' General Secretary West BengalSocial Protection Dept', img: placeholderImg },
     { name: ' Narendra Kumar Gurung', title: '(Vice President) WB Social Protection Dept.', img: placeholderImg },
   ],
   'Director Of Department': [
     { name: 'Arun Kumar Mandal ', title: '(Director Dept.(WB)', img: placeholderImg },
   ],
   'Youth Skill and Sports Department': [
-    { name: 'Jaydeb Monda', title: 'President', img: placeholderImg },
+    { name: 'Jaydeb Mondal', title: 'President', img: placeholderImg },
     { name: 'Debashish Barua', title: 'Youth General Secretary', img: 'https://res.cloudinary.com/dzrrjkubt/image/upload/v1757678004/WhatsApp_Image_2025-09-11_at_15.47.23_621ce708_xrpyx8.jpg' },
   ],
 };
@@ -77,7 +77,7 @@ const sectionOrder = [
   'Youth President (Social)',
   'Health Officer',
   'West Bengal General Secretary',
-  'Director PF Department',
+  'Director Of Department',
   'Youth Skill and Sports Department',
 ];
 
