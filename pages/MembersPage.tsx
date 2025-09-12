@@ -59,7 +59,7 @@ const leadershipSections: { [key: string]: Member[] } = {
     { name: ' Narendra Kumar Gurung', title: '(Vice President) WB Social Protection Dept.', img: placeholderImg },
   ],
   'Director Of Department': [
-    { name: 'Arun Kumar Mandal ', title: '(Director Dept.(WB)', img: placeholderImg },
+    { name: 'Arun Kumar Mondal ', title: '(Director Dept.)(WB)', img: placeholderImg },
   ],
   'Youth Skill and Sports Department': [
     { name: 'Jaydeb Mondal', title: 'President', img: placeholderImg },
