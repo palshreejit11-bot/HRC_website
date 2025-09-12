@@ -19,18 +19,18 @@ const Header: React.FC = () => {
     { href: '#/our-work', text: 'Our Work' },
     { href: '#/get-involved', text: 'Get Involved' },
     { href: '#/contact', text: 'Contact' },
-    { href: '#/district-branches', text: 'District Branches' },
   ];
 
   return (
     <header className="sticky top-0 z-50 bg-white font-heading shadow-md">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="container mx-auto px-6 py-3 flex justify-between items-center">
         <a href="#/" className="flex items-center gap-3">
-          {/* Placeholder for a proper logo SVG */}
-          <div className="https://res.cloudinary.com/dzrrjkubt/image/upload/v1757665249/WhatsApp_Image_2025-09-11_at_15.47.31_8228a4ba_knvicb.jpg">
-            H
-          </div>
-          <span className="text-xl font-bold text-brand-charcoal">
+          <img 
+            src="https://res.cloudinary.com/dzrrjkubt/image/upload/v1757665249/WhatsApp_Image_2025-09-11_at_15.47.31_8228a4ba_knvicb.jpg" 
+            alt="IHRC WB Logo" 
+            className="h-12 w-auto"
+          />
+          <span className="hidden sm:block text-lg font-bold text-brand-charcoal">
             International Human Rights Council WB
           </span>
         </a>

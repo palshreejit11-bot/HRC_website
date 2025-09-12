@@ -7,7 +7,6 @@ import MembersPage from './pages/MembersPage';
 import OurWorkPage from './pages/OurWorkPage';
 import GetInvolvedPage from './pages/GetInvolvedPage';
 import ContactPage from './pages/ContactPage';
-import DistrictBranchesPage from './pages/DistrictBranchesPage';
 
 const App: React.FC = () => {
   const [route, setRoute] = useState(window.location.hash || '#/');
@@ -35,8 +34,6 @@ const App: React.FC = () => {
         return <GetInvolvedPage />;
       case '#/contact':
         return <ContactPage />;
-      case '#/district-branches':
-        return <DistrictBranchesPage />;
       default:
         return <HomePage />;
     }
