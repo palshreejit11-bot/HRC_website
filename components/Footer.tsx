@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-md font-semibold text-white font-heading mb-4 uppercase tracking-wider">Contact India</h3>
+            <h3 className="text-md font-semibold text-white font-heading mb-4 uppercase tracking-wider">Our Contact </h3>
             <ul className="space-y-2 text-sm text-gray-400">
               <li className="flex items-start">
                 <span className="mr-2 mt-1">&#x1F4CD;</span> {/* Location pin emoji */}

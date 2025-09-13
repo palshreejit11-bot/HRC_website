@@ -7,7 +7,7 @@ const ContactPage: React.FC = () => {
     {
       name: "India Headquarters",
       address: "154 Raj Chambers, Alibhai Premji Marg, Grant Road, Mumbai-400007",
-      phone: "+91 7208802565",
+      phone: "",
       email: "ihrc777@gmail.com"
     },
     {
