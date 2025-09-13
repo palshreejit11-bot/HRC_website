@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-2 text-sm text-gray-400">
               <li className="flex items-start">
                 <span className="mr-2 mt-1">&#x1F4CD;</span> {/* Location pin emoji */}
-                <span>154 14/2, Near Tea Board, Old China Bazar Street,-700001</span>
+                <span>154 14/2 OLD CHINA BAZAR STREET BHIKANCHAND MARKET 1ST FLOOR NEAR TEA BOARD</span>
               </li>
               <li className="flex items-start">
                 <span className="mr-2 mt-1">&#x1F4DE;</span> {/* Phone emoji */}
