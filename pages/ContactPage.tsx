@@ -40,7 +40,7 @@ const ContactPage: React.FC = () => {
               <div className="bg-blue-100 border-l-4 border-blue-500 text-blue-800 p-4 mb-6 rounded-r-lg" role="alert">
                   <p className="font-bold">Instructions for Website Admin:</p>
                   <ol className="list-decimal list-inside mt-2 text-sm space-y-1">
-                      <li>Create a new form at <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">Google Forms</a>.</li>
+                      <li>Create a new form at <a href="https://forms.gle/EHbWym5w4GJfVVWz7" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">Google Forms</a>.</li>
                       <li>In your form, go to the "Responses" tab and link it to a Google Sheet.</li>
                       <li>Click the "Send" button, go to the "&lt; &gt;" (Embed) tab, and copy the HTML code.</li>
                       <li>Replace the placeholder `src` URL in the `iframe` below with the `src` from your copied code.</li>
@@ -48,7 +48,7 @@ const ContactPage: React.FC = () => {
               </div>
               <div className="relative w-full h-[750px] overflow-hidden rounded-md border border-gray-200">
                 <iframe 
-                  src="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_EMBED_LINK_HERE/viewform?embedded=true"
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSdnarLMfbyfcM26aiIWez2-2RDmsM97D_pmPOtHjZyaLyflFg/viewform?usp=dialog"
                   width="100%" 
                   height="100%" 
                   frameBorder="0" 
