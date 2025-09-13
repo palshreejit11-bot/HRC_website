@@ -29,15 +29,15 @@ const Footer: React.FC = () => {
             <ul className="space-y-2 text-sm text-gray-400">
               <li className="flex items-start">
                 <span className="mr-2 mt-1">&#x1F4CD;</span> {/* Location pin emoji */}
-                <span>154 Raj Chambers, Alibhai Premji Marg, Grant Road, Mumbai-400007</span>
+                <span>154 14/2, Near Tea Board, Old China Bazar Street,-700001</span>
               </li>
               <li className="flex items-start">
                 <span className="mr-2 mt-1">&#x1F4DE;</span> {/* Phone emoji */}
-                <span>+91 7208802565</span>
+                <span>+91 8777016200</span>
               </li>
               <li className="flex items-start">
                 <span className="mr-2 mt-1">&#x2709;</span> {/* Email emoji */}
-                <span>ihrc777@gmail.com</span>
+                <span>ihrcwb8@gmail.com</span>
               </li>
             </ul>
           </div>
