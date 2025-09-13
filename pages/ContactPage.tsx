@@ -24,12 +24,6 @@ const ContactPage: React.FC = () => {
     }
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    alert('Thank you for your message. This is a demonstration form and does not send data.');
-    (e.target as HTMLFormElement).reset();
-  };
-
   return (
     <div className="animate-fade-in">
       <PageHeader
@@ -40,32 +34,32 @@ const ContactPage: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            {/* Contact Form */}
+            {/* Google Form Embed */}
             <div className="bg-gray-50 p-8 rounded-lg shadow-md border">
               <h2 className="text-2xl font-bold text-brand-charcoal mb-6">Send Us a Message</h2>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">Full Name</label>
-                  <input type="text" id="name" name="name" required className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red" />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
-                  <input type="email" id="email" name="email" required className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red" />
-                </div>
-                <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700">Subject</label>
-                  <input type="text" id="subject" name="subject" required className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red" />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
-                  <textarea id="message" name="message" rows={5} required className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-red focus:border-brand-red"></textarea>
-                </div>
-                <div>
-                  <button type="submit" className="w-full bg-brand-red text-white font-semibold py-3 px-6 rounded-md hover:bg-red-700 transition-all duration-300">
-                    Submit Message
-                  </button>
-                </div>
-              </form>
+              <div className="bg-blue-100 border-l-4 border-blue-500 text-blue-800 p-4 mb-6 rounded-r-lg" role="alert">
+                  <p className="font-bold">Instructions for Website Admin:</p>
+                  <ol className="list-decimal list-inside mt-2 text-sm space-y-1">
+                      <li>Create a new form at <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-600">Google Forms</a>.</li>
+                      <li>In your form, go to the "Responses" tab and link it to a Google Sheet.</li>
+                      <li>Click the "Send" button, go to the "&lt; &gt;" (Embed) tab, and copy the HTML code.</li>
+                      <li>Replace the placeholder `src` URL in the `iframe` below with the `src` from your copied code.</li>
+                  </ol>
+              </div>
+              <div className="relative w-full h-[750px] overflow-hidden rounded-md border border-gray-200">
+                <iframe 
+                  src="https://docs.google.com/forms/d/e/YOUR_GOOGLE_FORM_EMBED_LINK_HERE/viewform?embedded=true"
+                  width="100%" 
+                  height="100%" 
+                  frameBorder="0" 
+                  marginHeight={0}
+                  marginWidth={0}
+                  title="Contact Us Form"
+                  className="absolute top-0 left-0 w-full h-full"
+                >
+                  Loading…
+                </iframe>
+              </div>
             </div>
 
             {/* Office Locations */}
@@ -75,7 +69,7 @@ const ContactPage: React.FC = () => {
                   <h3 className="text-xl font-bold text-brand-charcoal mb-4 border-b pb-2">{office.name}</h3>
                   <div className="space-y-3 text-gray-600 font-body">
                     <p className="flex items-start"><span className="text-brand-red mr-3 mt-1">&#x1F4CD;</span>{office.address}</p>
-                    <p className="flex items-start"><span className="text-brand-red mr-3 mt-1">&#x1F4DE;</span><a href={`tel:${office.phone}`} className="hover:text-brand-red">{office.phone}</a></p>
+                    {office.phone && <p className="flex items-start"><span className="text-brand-red mr-3 mt-1">&#x1F4DE;</span><a href={`tel:${office.phone}`} className="hover:text-brand-red">{office.phone}</a></p>}
                     <p className="flex items-start"><span className="text-brand-red mr-3 mt-1">&#x2709;</span><a href={`mailto:${office.email}`} className="hover:text-brand-red">{office.email}</a></p>
                   </div>
                 </div>
