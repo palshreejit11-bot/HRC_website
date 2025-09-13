@@ -29,7 +29,7 @@ const ContactPage: React.FC = () => {
       <PageHeader
         title="Contact Us"
         breadcrumb="Get in Touch"
-        bgImage="https://images.unsplash.com/photo-1555232336-1605511858a7?q=80&w=2070&auto=format&fit=crop"
+        bgImage="https://res.cloudinary.com/dzrrjkubt/image/upload/v1757679883/WhatsApp_Image_2025-09-12_at_15.04.50_e02dd749_hlfn9o.jpg"
       />
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
